@@ -84,7 +84,7 @@ if exists('+colorcolumn')
     highlight ColorColumn ctermbg=darkyellow
     "aGrey
     call matchadd('ColorColumn', '\%81v', 100)
-    call matchadd('ColorColumn', '\%76v', 100)
+    "call matchadd('ColorColumn', '\%76v', 100)
     "let &colorcolumn=join(range(81,999),",")
     "let &colorcolumn="80,".join(range(120,999),",")
 endif
