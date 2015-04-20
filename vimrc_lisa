@@ -14,7 +14,8 @@
 
 " Enable central plugin repository
 source ~/.vim/autoload/pathogen.vim
-call pathogen#infect('~/.vim/bundle/{}') " Call it also for the local plugin path
+call pathogen#infect('/opt/lisa/os/vim/bundle/{}')
+call pathogen#infect('/u/visin/.vim/bundle/{}') " Call it also for the local plugin path
 filetype off
 call pathogen#helptags()
 
