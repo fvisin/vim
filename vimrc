@@ -1,3 +1,14 @@
+" Commands summary:
+" <leader>tl --> TaskList
+" <leader>g  --> Gundo popup (diff with last saves)
+" <leader>{pw, pW} --> Open corresponding docs
+" <leader>j        --> Goto definition
+" <leader>r        --> Rename all occurrencies
+" <leader>s        --> Search all occurrencies
+" ipdb + <Tab>     --> Sets trace
+" ctrl-l           --> Creates documentation of highlighted 'def' or 'class'
+" def + <Tab>      --> Create snippet for new method
+
 " Enable central plugin repository
 source ~/.vim/autoload/pathogen.vim
 call pathogen#infect('~/.vim/bundle/{}') " Call it also for the local plugin path
@@ -24,20 +35,15 @@ set hlsearch " Highlight results of search
 " so you don't have to worry about removing it manually before you commit.
 autocmd BufWritePre *.py,*.pyx :%s/\s\+$//e
 
-"-------------------------------------------------------------------------
+" Vim scrolling (!!!) - NOTE: to select text with mouse keep shift pressed
+set mouse=a
+"set ttymouse=xterm
 
-" AUTOCOMPLETION
+" Autocompletion --> now done with jedi
 "Disable docstring window popup during completion
 "autocmd FileType python setlocal completeopt-=preview
-
 "Use TAB to complete when typing words, else inserts TABs as usual.
 "Uses dictionary and source files to find matching words to complete.
-
-"See help completion for source,
-"Note: usual completion is on <C-n> but more trouble to press all the time.
-"Never type the same word twice and maybe learn a new spellings!
-"Use the Linux dictionary when spelling is in doubt.
-"Window users can copy the file to their machine.
 "function! Tab_Or_Complete()
 "    if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
 "        return "\<C-N>"
@@ -46,14 +52,14 @@ autocmd BufWritePre *.py,*.pyx :%s/\s\+$//e
 "    endif
 "endfunction
 ":inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-:set dictionary="/usr/dict/words"
-
-"For VIM Scrolling (!!!) - NOTA: per selezionare tieni schiacciato shift
-set mouse=a
-"set ttymouse=xterm
-
-"Exit visualmode without delay (but shortens timeout after leader)
-"set timeoutlen=100 ttimeoutlen=0
+":set dictionary="/usr/dict/words"
+" AUTOCOMPLETE with tab
+"set omnifunc=syntaxcomplete#Complete  " Enable omnicompletion for 
+"                                        programming syntax (Ctrl+X-Ctrl+O
+"                                        brings menu up)
+"au FileType python set omnifunc=pythoncomplete#Complete
+"let g:SuperTabDefaultCompletionType = "context"
+"set completeopt=menuone,longest,preview
 
 " Add the virtualenv's site-packages to vim path to have the code completion
 py << EOF
@@ -91,14 +97,6 @@ map <leader>tl <Plug>TaskList
 " Gundo popup (diff last saves)
 map <leader>g :GundoToggle<CR>
 
-" AUTOCOMPLETE with tab
-"set omnifunc=syntaxcomplete#Complete  " Enable omnicompletion for 
-"                                        programming syntax (Ctrl+X-Ctrl+O
-"                                        brings menu up)
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
-
 " Open docs with <leader>pw or <leader>pW
 filetype plugin on
 let g:pydoc_highlight=0 " Don't highlight word when open word definition 
@@ -110,12 +108,3 @@ map <leader>r :RopeRename<CR>
 " Search occurrencies
 nmap <leader>s <Esc>:Ack!
 
-" Commands summary:
-" <leader>tl --> TaskList
-" <leader>g  --> Gundo popup (diff with last saves)
-" <leader>{pw, pW} --> Open corresponding docs
-" <leader>j        --> Goto definition
-" <leader>r        --> Rename all occurrencies
-" <leader>s        --> Search all occurrencies
-" ipdb+<Tab>       --> Sets trace
-" ctrl-l           --> Creates documentation of highlighted 'def' or 'class'
