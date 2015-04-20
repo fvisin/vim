@@ -1,7 +1,13 @@
+* clone into ~/.vim: `git clone git@github.com:fvisin/vim.git ~/.vim`
+
 * run:
+    ```
     git submodule init
     git submodule update
     git submodule foreach git submodule init
     git submodule foreach git submodule update
+    ```
 
 * install python flake8 or any other syntax checker allowed by syntastic
+
+* install jedi: `pip install jedi`
