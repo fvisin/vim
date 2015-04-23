@@ -1,16 +1,30 @@
-" Commands summary:
-" Note: <leader> is set to ',' (without quotes)
-"
-" <leader>tl       --> TaskList
+" Hotkeys summary
+" ----------------
+" <leader>tl       --> opens TaskList (shows every todo)
 " <leader>g        --> Gundo popup (diff with last saves)
-" <leader>{pw, pW} --> Open corresponding docs
 " <leader>j        --> Goto definition
 " <leader>r        --> Rename all occurrencies
 " <leader>s        --> Search all occurrencies
+" <leader>{pw, pW} --> Show documentation with pydoc plugin
+" <K>              --> Show documentation with jedi plugin
 " ipdb + <Tab>     --> Sets trace
-" ctrl-l           --> Creates documentation of highlighted 'def' or 'class'
+" Ctrl-l           --> Creates documentation of highlighted 'def' or 'class'
 " def + <Tab>      --> Create snippet for new method
-" ctrl + <Space>   --> Autocomplete + docs
+
+
+" Plugins description
+" -------------------
+"  * gundo: diff with last saves
+"  * jedi-vim: does everything :)
+"  * pydoc: shows the documentation of word or Word
+"  * snipmate: allows to insert snippets with <snippet_name> + <Tab>
+"  * snippets: snipmate custom snippets directory
+"  * syntastic: syntax check in vim (a syntax checker has to be installed) 
+"  * tasklist: lists of every todo in the code
+"  * vim-pydocstring: inserts templates for the documentation
+"  * vim-yaml: indentation settings for yaml files
+"  * 
+
 
 " Enable central plugin repository
 source ~/.vim/autoload/pathogen.vim
@@ -79,19 +93,17 @@ EOF
 
 "-------------------------------------------------------------------------
 
-" Put a yellow column after 80 lines
-if exists('+colorcolumn')
-    highlight ColorColumn ctermbg=darkyellow
-    "aGrey
-    call matchadd('ColorColumn', '\%81v', 100)
-    "call matchadd('ColorColumn', '\%76v', 100)
-    "let &colorcolumn=join(range(81,999),",")
-    "let &colorcolumn="80,".join(range(120,999),",")
-endif
-
-" Code folding (za to open or close a fold)
-set foldmethod=indent
-set foldlevel=99
+" Syntax check
+let g:syntastic_enable_highlighting=1  "highlight
+let g:syntastic_style_error_symbol = ">>" "error symbol
+let g:syntastic_warning_symbol = ">>" "warning symbol
+"let g:syntastic_auto_loc_list=1  "open list of errors
+let g:syntastic_loc_list_height=5  "list length
+let g:syntastic_auto_jump=0  "do not jump to errors when detected
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'  "show number of errors and warnings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " Task list
 let mapleader=","
@@ -105,9 +117,19 @@ filetype plugin on
 let g:pydoc_highlight=0 " Don't highlight word when open word definition 
 
 " Go to definition and rename all occurrencies
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
+"map <leader>j :RopeGotoDefinition<CR>
+"map <leader>r :RopeRename<CR>
 
-" Search occurrencies
-nmap <leader>s <Esc>:Ack!
+"-------------------------------------------------------------------------
+
+" Draw a yellow column after 80 lines
+if exists('+colorcolumn')
+    highlight ColorColumn ctermbg=darkyellow
+    "aGrey
+    call matchadd('ColorColumn', '\%81v', 100)
+    "call matchadd('ColorColumn', '\%76v', 100)
+    "let &colorcolumn=join(range(81,999),",")
+    "let &colorcolumn="80,".join(range(120,999),",")
+endif
+
 

@@ -1,6 +1,6 @@
-* clone into ~/.vim: `git clone git@github.com:fvisin/vim.git ~/.vim`
+* Clone into ~/.vim: `git clone git@github.com:fvisin/vim.git ~/.vim`
 
-* run:
+* Run:
     ```
     git submodule init
     git submodule update
@@ -8,6 +8,10 @@
     git submodule foreach git submodule update
     ```
 
-* install python flake8 or any other syntax checker allowed by syntastic
+* Install python flake8 or any other syntax checker allowed by syntastic
 
-* install jedi: `pip install jedi`
+* Install jedi: `pip install jedi`
+
+* Copy vimrc or vimrc_lisa in ~/.vimrc
+
+* Read the vimrc docstring to learn about the shortcuts keys to the tools
