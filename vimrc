@@ -93,7 +93,12 @@ EOF
 
 "-------------------------------------------------------------------------
 
-" Syntax check
+"Jedi (refer to https://github.com/davidhalter/jedi-vim#faq)
+let g:jedi#popup_on_dot = 0
+"let g:jedi#show_call_signatures = "0"
+"let g:jedi#popup_select_first = 0
+
+"Syntax check
 let g:syntastic_enable_highlighting=1  "highlight
 let g:syntastic_style_error_symbol = ">>" "error symbol
 let g:syntastic_warning_symbol = ">>" "warning symbol
