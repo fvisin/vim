@@ -98,8 +98,8 @@ let g:jedi#popup_on_dot = 0
 "let g:jedi#show_call_signatures = "0"
 "let g:jedi#popup_select_first = 0
 
-"Syntax check
-let g:syntastic_enable_highlighting=1  "highlight
+"Syntax check (Syntastic)
+let g:syntastic_enable_highlighting=1  "highlight errors and warnings
 let g:syntastic_style_error_symbol = ">>" "error symbol
 let g:syntastic_warning_symbol = ">>" "warning symbol
 "let g:syntastic_auto_loc_list=1  "open list of errors
@@ -109,6 +109,12 @@ let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'  "show 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+"set the colour of errors and warnings (respectively)
+"highlight link SyntasticError SpellBad    "default
+"highlight link SyntasticWarning SpellCap  "default
+hi SpellBad ctermfg=darkblue ctermbg=yellow            "errors line
+hi error ctermfg=white ctermbg=yellow               "errors sign
+hi SyntasticErrorSign ctermfg=white ctermbg=yellow  "style errors sign
 
 " Task list
 let mapleader=","
