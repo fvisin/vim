@@ -2,19 +2,15 @@
 
 * Run:
     ```
-    git submodule init
-    git submodule update
-    git submodule foreach git submodule init
-    git submodule foreach git submodule update
-    cd bundle/YouCompleteMe
     git submodule update --init --recursive
+    cd bundle/YouCompleteMe
     ./install.sh
     ```
 
 * Install python flake8 or any other syntax checker allowed by syntastic
 
-* Install jedi: `pip install jedi`
+* (Install jedi: `pip install jedi` --> not anymore)
 
 * Copy vimrc or vimrc_lisa in ~/.vimrc
 
-* Read the vimrc docstring to learn about the shortcuts keys to the tools
+* Read the vimrc docstring to learn about the shortcuts keys of the tools
