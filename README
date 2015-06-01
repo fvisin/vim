@@ -9,16 +9,17 @@
         # NON FUNZIONA...
         hg clone https://vim.googlecode.com/hg/ vim
         cd vim/src
-        ./configure --prefix=$HOME/.lib --enable-pythoninterp --with-python-config-dir=/usr/lib64/python2.7/config -with-features=huge --disable-gui
+        CPPFLAGS="`python-config --cflags`" LDFLAGS="`python-config --ldflags`" ./configure --prefix=$HOME/.local_extra --with-features=huge --disable-gui --enable-pythoninterp --with-python-config-dir=/u/lisa/local/install_package.fc14_v3/Canopy1.4/appdata/canopy-1.4.0.1938.rh5-x86_64/lib/python2.7/config
         make && make install
 
+        cd
         wget http://www.cmake.org/files/v3.2/cmake-3.2.2.tar.gz
         tar -zxvf cmake-3.2.2.tar.gz
         cd cmake-3.2.2
-        ./configure --prefix ~/lib/
-        make install
-        export PATH=~/lib/bin/:$PATH
-        cd .vim/bundle/YouCompleteMe
+        ./configure --prefix=$HOME/.local_extra
+        make && make install
+
+        cd $HOME/.vim/bundle/YouCompleteMe
         ./install.sh --system-boost
     *** else
         ./install.sh
