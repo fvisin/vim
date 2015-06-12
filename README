@@ -3,10 +3,10 @@
 * Run:
     ```
     git submodule update --init --recursive
+
+    ############# SKIP THIS PART AS YCM IS NOT WORKING AT LISA... #############
     *** at lisa
         cd
-        
-        # NON FUNZIONA...
         hg clone https://vim.googlecode.com/hg/ vim
         cd vim/src
         CPPFLAGS="`python-config --cflags`" LDFLAGS="`python-config --ldflags`" ./configure --prefix=$HOME/.local_extra --with-features=huge --disable-gui --enable-pythoninterp --with-python-config-dir=/u/lisa/local/install_package.fc14_v3/Canopy1.4/appdata/canopy-1.4.0.1938.rh5-x86_64/lib/python2.7/config
@@ -21,9 +21,10 @@
 
         cd $HOME/.vim/bundle/YouCompleteMe
         ./install.sh --system-boost
-    *** else
+    *** on an update computer
         cd ./bundle/YouCompleteMe
     ***
+    ############################################################################
     ```
 
 * Install python flake8 or any other syntax checker allowed by syntastic
@@ -34,7 +35,7 @@
   Note also that pylint can cause problems sometimes. If this is the case,
   uninstall it.
 
-* (Install jedi: `pip install jedi` --> not anymore)
+* Install jedi: `pip install jedi` (use `--user` to install it locally)
 
 * Copy vimrc or vimrc_lisa in ~/.vimrc
 
