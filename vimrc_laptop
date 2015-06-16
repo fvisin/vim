@@ -16,12 +16,13 @@
 " -------------------
 "  * gundo: diff with last saves
 "  * jedi-vim: does everything :)
-"  * pydoc: shows the documentation of word or Word
+"  * pydoc: shows the documentation of the current command
+"  * pydocstring: inserts templates for the documentation
 "  * snipmate: allows to insert snippets with <snippet_name> + <Tab>
 "  * snippets: snipmate custom snippets directory
+"  * supertab: provides autocomplete with TAB
 "  * syntastic: syntax check in vim (a syntax checker has to be installed) 
 "  * tasklist: lists of every todo in the code
-"  * vim-pydocstring: inserts templates for the documentation
 "  * vim-yaml: indentation settings for yaml files
 "  * 
 
@@ -105,6 +106,9 @@ let g:jedi#popup_on_dot = 0
 " Open docs with <leader>pw or <leader>pW
 filetype plugin on
 let g:pydoc_highlight=0 " Don't highlight word when open word definition 
+
+" *** Pydocstring ***
+let g:template_vim_template_dir = '~/.vim/bundle/pydocstring-templates'
 
 " *** SUPERTAB ***
 
