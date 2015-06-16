@@ -110,7 +110,10 @@ let g:jedi#popup_on_dot = 0
 filetype plugin on
 let g:pydoc_highlight=0 " Don't highlight word when open word definition 
 
-" *** SUPERTAB ***
+" *** Pydocstring ***
+let g:template_vim_template_dir = '~/.vim/bundle/pydocstring-templates'
+
+" " *** SUPERTAB ***
 
 " *** Syntastic *** (Syntax check)
 let g:syntastic_enable_highlighting=1  "highlight errors and warnings
