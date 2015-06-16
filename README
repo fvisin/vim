@@ -15,8 +15,6 @@
 
 * Install jedi: `pip install jedi` (use `--user` to install it locally)
 
-* Copy vimrc or vimrc_lisa in ~/.vimrc
-
 * Read the vimrc docstring to learn about the shortcuts keys of the tools
 
 
