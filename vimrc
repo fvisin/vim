@@ -28,7 +28,7 @@
 
 " Enable central plugin repository
 source ~/.vim/autoload/pathogen.vim
-if filereadable(expand("~/.vim/autoload/pathogen.vim"))
+if filereadable(expand("/opt/lisa/os/vim/bundle/{}"))
 	call pathogen#infect('/opt/lisa/os/vim/bundle/{}')
 endif
 call pathogen#infect('~/.vim/bundle/{}') " Call it also for the local plugin path
@@ -111,7 +111,7 @@ filetype plugin on
 let g:pydoc_highlight=0 " Don't highlight word when open word definition 
 
 " *** Pydocstring ***
-let g:template_vim_template_dir = '~/.vim/bundle/pydocstring-templates'
+let g:pydocstring_templates_dir = $HOME."/.vim/bundle/pydocstring-templates/"
 
 " " *** SUPERTAB ***
 

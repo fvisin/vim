@@ -13,7 +13,7 @@
   Note also that pylint can cause problems sometimes. If this is the case,
   uninstall it.
 
-* Install jedi: `pip install jedi` (use `--user` to install it locally)
+* Note: DO NOT install jedi. If you have it as system package, remove it.
 
 * Read the vimrc docstring to learn about the shortcuts keys of the tools
 
