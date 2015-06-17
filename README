@@ -15,6 +15,8 @@
 
 * Note: DO NOT install jedi. If you have it as system package, remove it.
 
+* Old vim versions (e.g. Lisa's) require you to copy vimrc to ~/.vimrc
+
 * Read the vimrc docstring to learn about the shortcuts keys of the tools
 
 
