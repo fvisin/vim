@@ -1,9 +1,9 @@
 * Clone into ~/.vim: `git clone git@github.com:fvisin/vim.git ~/.vim`
 
-* Run:
-    ```
-    git submodule update --init --recursive
-    ```
+* Old vim versions (e.g. Lisa's) require you to copy vimrc to ~/.vimrc
+  i.e., `cp ~/.vim/vimrc ~/.vimrc` 
+
+* open vim and run `:PluginInstall` to install the plugins 
 
 * Install python flake8 or any other syntax checker allowed by syntastic
   Note: installing flake8 with pip on a system with flake8 installed as 
@@ -13,37 +13,10 @@
   Note also that pylint can cause problems sometimes. If this is the case,
   uninstall it.
 
-* Note: DO NOT install jedi. If you have it as system package, remove it.
-
-* Old vim versions (e.g. Lisa's) require you to copy vimrc to ~/.vimrc
+* Note: DO NOT install jedi as a system package. If you have it as system package, remove it.
 
 * Note: unfortunately Lisa's vim version behaves differently than the latest vim. 
   The pydocstring-templates work on the legacy version but add an extra space on
   newer versions. Edit the templates according to your needs.
 
 * Read the vimrc docstring to learn about the shortcuts keys of the tools
-
-
-
-
-
-LEGACY *NOT WORKING* INSTRUCTIONS:
-    *** at lisa
-        cd
-        hg clone https://vim.googlecode.com/hg/ vim
-        cd vim/src
-        CPPFLAGS="`python-config --cflags`" LDFLAGS="`python-config --ldflags`" ./configure --prefix=$HOME/.local_extra --with-features=huge --disable-gui --enable-pythoninterp --with-python-config-dir=/u/lisa/local/install_package.fc14_v3/Canopy1.4/appdata/canopy-1.4.0.1938.rh5-x86_64/lib/python2.7/config
-        make && make install
-
-        cd
-        wget http://www.cmake.org/files/v3.2/cmake-3.2.2.tar.gz
-        tar -zxvf cmake-3.2.2.tar.gz
-        cd cmake-3.2.2
-        ./configure --prefix=$HOME/.local_extra
-        make && make install
-
-        cd $HOME/.vim/bundle/YouCompleteMe
-        ./install.sh --system-boost
-    *** on an update computer
-        cd ./bundle/YouCompleteMe
-    ***
