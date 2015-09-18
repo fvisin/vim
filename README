@@ -3,7 +3,7 @@
 * Old vim versions (e.g. Lisa's) require you to copy vimrc to ~/.vimrc
   i.e., `cp ~/.vim/vimrc ~/.vimrc` 
 
-* open vim and run `:PluginInstall` to install the plugins 
+* Open vim and run `:PluginInstall` to install the plugins 
 
 * Install python flake8 or any other syntax checker allowed by syntastic
   Note: installing flake8 with pip on a system with flake8 installed as 
@@ -15,8 +15,8 @@
 
 * Note: DO NOT install jedi as a system package. If you have it as system package, remove it.
 
-* Note: unfortunately Lisa's vim version behaves differently than the latest vim. 
-  The pydocstring-templates work on the legacy version but add an extra space on
-  newer versions. Edit the templates according to your needs.
+* Note: Lisa's vim version behaves differently than the latest vim. 
+  The pydocstring-templates works on the legacy version but add an extra space on
+  newer versions. Edit the templates in bundle/pydocstring-templates according to your needs.
 
 * Read the vimrc docstring to learn about the shortcuts keys of the tools
