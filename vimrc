@@ -1,29 +1,40 @@
-" Hotkeys summary
+" Hotkeys summary (note <leader> == ",")
 " ----------------
-" <leader>tl       --> opens TaskList (shows every todo)
-" <leader>g        --> Gundo popup (diff with last saves)
-" <leader>j        --> Goto definition
-" <leader>r        --> Rename all occurrencies
-" <leader>s        --> Search all occurrencies
-" <leader>{pw, pW} --> Show documentation with pydoc plugin
-" <K>              --> Show documentation with jedi plugin
-" ipdb + <Tab>     --> Sets trace
-" Ctrl-l           --> Creates documentation of highlighted 'def' or 'class'
-" def + <Tab>      --> Create snippet for new method
+" <leader> g            Rope goto definition (jedi through rope)
+" <Ctrl>-o              Jump back
+" <K>                   Show documentation with jedi plugin
+
+" Ctrl-l                Creates documentation of highlighted 'def' or 'class'
+" def + <Tab>           Create snippet for new function
+" ipdb + <Tab>          Sets trace
+" <leader> ig           Toggle visualization of indent guides
+
+" <Ctrl-Space>          Rope autocomplete (jedi through rope)
+
+" <leader> tl           opens TaskList (shows every todo)
+" <F5>                  Gundo popup (diff with last saves)
+" <leader> r            Rename all occurrencies
+" [[                    Jump on previous class or function (normal, visual, operator modes) (jedi through rope)
+" ]]                    Jump on next class or function (normal, visual, operator modes)  (jedi through rope)
+" [M                    Jump on previous class or method (normal, visual, operator modes) (jedi through rope)
+" ]M                    Jump on next class or method (normal, visual, operator modes) (jedi through rope)
 
 
 " Plugins description
 " -------------------
 "  * gundo: diff with last saves
 "  * jedi-vim: does everything :)
-"  * pydoc: shows the documentation of the current command
 "  * pydocstring: inserts templates for the documentation
 "  * snipmate: allows to insert snippets with <snippet_name> + <Tab>
 "  * snippets: snipmate custom snippets directory
 "  * supertab: provides autocomplete with TAB
 "  * syntastic: syntax check in vim (a syntax checker has to be installed) 
 "  * tasklist: lists of every todo in the code
+"  * vim-indent-guides: adds indentation guides
 "  * vim-yaml: indentation settings for yaml files
+
+" Disabled
+"  * pydoc: shows the documentation of the current command
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle + plugins
@@ -31,20 +42,15 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call vundle#begin() " you can also pass a path where Vundle should install plugins
 
-" let Vundle manage Vundle (required!)
-Plugin 'gmarik/Vundle.vim'
-
-" The bundles you install will be listed here
-" After having saved and *closed* the file, reopen vim and run :PluginInstall
+" The installed bundles 
+" To modify: add or remove, close .vimrc, open any file with vim and run :PluginInstall
+" see :h vundle for more details or wiki for FAQ
+Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle (required!)  
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
 Plugin 'davidhalter/jedi-vim'
-Plugin 'fs111/pydoc.vim', {'name': 'pydoc'}
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
@@ -54,6 +60,8 @@ Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
 Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
 Plugin 'honza/vim-snippets', {'name': 'snippets'}
 Plugin 'avakhov/vim-yaml'
+Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'fs111/pydoc.vim', {'name': 'pydoc'}
 " Plugin 'klen/python-mode'  " Apparently not compatible with jedi-vim
 
 " TODO: C++ 
@@ -62,24 +70,6 @@ Plugin 'avakhov/vim-yaml'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-
-" OLD
-" Enable central plugin repository
-" source ~/.vim/autoload/pathogen.vim
-"if filereadable(expand("/opt/lisa/os/vim/bundle/{}"))
-"	call pathogen#infect('/opt/lisa/os/vim/bundle/{}')
-"endif
-"call pathogen#infect('~/.vim/bundle/{}') " Call it also for the local plugin path
-"filetype off
-"call pathogen#helptags()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -94,7 +84,9 @@ set expandtab " Substitute tabs with spaces
 set ai " Auto indent
 set si " Smart indent
 set wrap " Wrap lines
-set number " Show line numbers
+" set list " show tabs
+" set listchars=tab:\|\<Space> " how to highlight tabs
+" set number " Show line numbers
 " set smarttab
 " set lbr " Set line break
 " set tw=500 " Set line break at 500 characters
@@ -128,19 +120,28 @@ set nobackup
 set nowb
 set noswapfile
 
+" Move between windows with alt+arrows
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
 " Syntax highlight and colors
 syntax on " Enable syntax highlighting
 filetype on " Try to detect filetypes
 filetype plugin indent on " Turn on filetype-specific indenting modes and plugins
 let python_highlight_all=1 " Extra highlights
 set tm=500
-" Set extra options when running in GUI mode
-" if has("gui_running")
-"     set guioptions-=T
-"     set guioptions+=e
-"     set t_Co=256
-"     set guitablabel=%M\ %t
-" endif
+
+" Colors --> not working well, it's a mess.
+"set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
+"colo fra  " use my color scheme
+"if exists('+colorcolumn') " Draw a yellow column after 80 lines and after 120 
+"    let &colorcolumn="80,".join(range(120,999),",") 
+"    hi ColorColumn ctermfg=yellow ctermbg=232 guibg=#2c2d27
+"endif
+" Error and warning highlight colors 
+"hi Search ctermfg=237 ctermbg=178 " Colors for search
 
 " Search options
 set hlsearch " Highlight results of search
@@ -149,11 +150,9 @@ set ignorecase " Do case insensitive matching
 set smartcase " Search case sensitive only if you type uppercase
 
 " Strip trailing whitespace off all lines every time you save a .py or .pyx file
-" so you don't have to worry about removing it manually before you commit.
 autocmd BufWritePre *.py,*.pyx :%s/\s\+$//e
 
-" Jump to the last position when reopening a file
-" Note: .viminfo should be owned by your user
+" Jump to the last position when reopening a file (NB: .viminfo should be owned by your user)
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -175,24 +174,13 @@ if 'VIRTUAL_ENV' in os.environ:
     #execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-" Draw a yellow column after 80 lines
-"if exists('+colorcolumn')
-"    highlight ColorColumn ctermbg=darkyellow
-"    "aGrey
-"    call matchadd('ColorColumn', '\%81v', 100)
-"    "call matchadd('ColorColumn', '\%76v', 100)
-"    "let &colorcolumn=join(range(81,999),",")
-"    "let &colorcolumn="80,".join(range(120,999),",")
-"endif
-
-
 " Map jj to <Esc>
 imap jj <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Gundo (navigate through undo list)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>g :GundoToggle<CR>
+nnoremap <F5> :GundoToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Jedi-vim 
@@ -218,65 +206,6 @@ let g:pydoc_highlight = 0 " Don't highlight word when open word definition
 let g:pydocstring_templates_dir = $HOME."/.vim/bundle/pydocstring-templates/"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Python-mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Keys:
-" K             Show python docs
-" <Ctrl-Space>  Rope autocomplete
-" <Ctrl-c>g     Rope goto definition
-" <Ctrl-c>d     Rope show documentation
-" <Ctrl-c>f     Rope find occurrences
-" <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
-" [[            Jump on previous class or function (normal, visual, operator modes)
-" ]]            Jump on next class or function (normal, visual, operator modes) 
-" [M            Jump on previous class or method (normal, visual, operator modes)
-" ]M            Jump on next class or method (normal, visual, operator modes)
-
-" Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
-let g:pymode_doc = 0
-" set completeopt=menu " Prevent the docs window from automatically open
-
-"Linting
-let g:pymode_lint = 0  " Disable linting: use syntastic
-"let g:pymode_lint_checker = "pyflakes,pep8,pep257"
-"let g:pymode_lint_write = 1 " Auto check on save (if modified)
-"let g:pymode_lint_unmodified = 0 " Check even if unmodified
-"let g:pymode_lint_signs = 1 " Place error signs
-"let g:pymode_lint_ignore = "C901"
-"let g:pymode_lint_cwindow = 1 "Auto open cwindow (quickfix) if any errors have been found
-
-" Automatically fix PEP8 errors in the current buffer:
-noremap <F8> :PymodeLintAuto<CR>
-
-" Support virtualenv detection
-let g:pymode_virtualenv = 1
-
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
-let g:pymode_breakpoint_cmd = 'from IPython import embed; embed()'
-
-" Completion
-let g:pymode_rope_completion = 1 " Turn on code completion
-let g:pymode_rope_complete_on_dot = 0 " Turn off autocomplete on dot
-let g:pymode_rope_completion_bind = '<C-Space>' " Ctrl-space to complete
-let g:pymode_rope_autoimport = 1 " Autocomplete objects that have not been imported
-
-" Syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-" Don't autofold code
-let g:pymode_folding = 0
-
-" Disable rope (refactoring)
-let g:pymode_rope = 0 
-                                                                                
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Supertab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " au FileType python set omnifunc=pythoncomplete#Complete " This breaks Jedi
@@ -296,12 +225,13 @@ let g:syntastic_warning_symbol = ">>" "warning symbol
 let g:syntastic_loc_list_height = 5  "list length
 let g:syntastic_auto_jump = 0  "do not jump to errors when detected
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'  "show number of errors and warnings
-"set the colour of errors and warnings (respectively)
-"highlight link SyntasticError SpellBad    "default
-"highlight link SyntasticWarning SpellCap  "default
-hi SpellBad ctermfg=darkblue ctermbg=yellow         " errors line
-hi error ctermfg=white ctermbg=yellow               " errors sign
-hi SyntasticErrorSign ctermfg=white ctermbg=yellow  " style errors sign
+"set the colour of errors and warnings 
+"hi SpellBad ctermfg=237  ctermbg=178
+"hi error ctermfg=237 ctermbg=178                       " errors sign
+"hi SyntasticErrorSign ctermfg=237 ctermbg=178          " style errors sign
+hi SpellBad ctermfg=darkblue ctermbg=yellow             " errors line
+hi error ctermfg=darkblue ctermbg=yellow                " errors sign
+hi SyntasticErrorSign ctermfg=darkblue ctermbg=yellow   " style errors sign
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tasklist 
@@ -309,6 +239,81 @@ hi SyntasticErrorSign ctermfg=white ctermbg=yellow  " style errors sign
 let mapleader=","
 map <leader>tl <Plug>TaskList
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" => Vim indent guides
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" toggled with <Leader> ig
+let g:indent_guides_auto_colors = 0 " set colors manually
+hi IndentGuidesOdd  ctermbg=darkgrey
+hi IndentGuidesEven ctermbg=darkgrey
+let g:indent_guides_start_level=2 " start showing indentation from the 2 level
+let g:indent_guides_guide_size=1 " dimension of the guide
+let g:indent_guides_enable_on_vim_startup=0 "autostart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" DISABLED
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Python-mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Documentation
+"let g:pymode_doc = 1
+"let g:pymode_doc_key = 'K'
+"let g:pymode_doc = 0
+" set completeopt=menu " Prevent the docs window from automatically open
+
+"Linting
+"let g:pymode_lint = 0  " Disable linting: use syntastic
+""let g:pymode_lint_checker = "pyflakes,pep8,pep257"
+""let g:pymode_lint_write = 1 " Auto check on save (if modified)
+""let g:pymode_lint_unmodified = 0 " Check even if unmodified
+""let g:pymode_lint_signs = 1 " Place error signs
+""let g:pymode_lint_ignore = "C901"
+""let g:pymode_lint_cwindow = 1 "Auto open cwindow (quickfix) if any errors have been found
+"
+"" Automatically fix PEP8 errors in the current buffer:
+"noremap <F8> :PymodeLintAuto<CR>
+"
+"" Support virtualenv detection
+"let g:pymode_virtualenv = 1
+"
+"" Enable breakpoints plugin
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_key = '<leader>b'
+"let g:pymode_breakpoint_cmd = 'from IPython import embed; embed()'
+"
+"" Completion
+"let g:pymode_rope_completion = 1 " Turn on code completion
+"let g:pymode_rope_complete_on_dot = 0 " Turn off autocomplete on dot
+"let g:pymode_rope_completion_bind = '<C-Space>' " Ctrl-space to complete
+"let g:pymode_rope_autoimport = 1 " Autocomplete objects that have not been imported
+"
+"" Syntax highlighting
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"
+"" Don't autofold code
+"let g:pymode_folding = 0
+"
+"" Disable rope (refactoring)
+"let g:pymode_rope = 0 
+                                                                                
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ropevim 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
