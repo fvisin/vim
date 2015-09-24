@@ -1,6 +1,6 @@
 " Hotkeys summary (note <leader> == ",")
 " ----------------
-" <leader> g            Rope goto definition (jedi through rope)
+" <leader> d            Rope goto definition (jedi through rope)
 " <Ctrl>-o              Jump back
 " <K>                   Show documentation with jedi plugin
 
@@ -202,6 +202,7 @@ let g:jedi#show_call_signatures = 2 "popup with arguments of the current functio
 let g:jedi#auto_close_doc = 1  "automatically close doc window
 "let g:jedi#documentation_command = 'K'
 let g:jedi#max_doc_height=20  "height of the doc window
+let g:jedi#goto_command = "<leader>d" "set goto defition command
 
 
 " => Pydoc 
