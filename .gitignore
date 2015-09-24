@@ -9,4 +9,5 @@ bundle/syntastic
 bundle/tasklist
 bundle/tlib_vim
 bundle/vim-addon-mw-utils
+bundle/vim-indent-guides/
 bundle/vim-yaml

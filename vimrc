@@ -203,7 +203,7 @@ let g:pydoc_highlight = 0 " Don't highlight word when open word definition
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Pydocstring 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pydocstring_templates_dir = $HOME."/.vim/bundle/pydocstring-templates/"
+let g:pydocstring_templates_dir = $HOME."/.vim/pydocstring-templates/"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Supertab
@@ -216,6 +216,7 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>" " always use omni completion 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic (Syntax check)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" You can run checkers explicitly by calling :SyntasticCheck <checker
 let g:syntastic_python_checkers = ['flake8'] "use one of the following checkers: 
                                              " flake8, pyflakes, pylint, python (native checker)
 let g:syntastic_enable_highlighting = 1  "highlight errors and warnings
