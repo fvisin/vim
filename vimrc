@@ -19,6 +19,8 @@
 " [M                    Jump on previous class or method (normal, visual, operator modes) (jedi through rope)
 " ]M                    Jump on next class or method (normal, visual, operator modes) (jedi through rope)
 
+"<F5>                   Navigate through undos
+"<F8>                   Autofix PEP8 errors
 
 " Plugins description
 " -------------------
@@ -36,7 +38,8 @@
 " Disabled
 "  * pydoc: shows the documentation of the current command
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 " Vundle + plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
@@ -49,6 +52,7 @@ call vundle#begin() " you can also pass a path where Vundle should install plugi
 " To modify: add or remove, close .vimrc, open any file with vim and run :PluginInstall
 " see :h vundle for more details or wiki for FAQ
 Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle (required!)  
+Plugin 'hhatto/autopep8'
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
@@ -71,7 +75,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation and tab settings
@@ -177,12 +181,18 @@ EOF
 " Map jj to <Esc>
 imap jj <Esc>
 
+
+
+" => Autopep8 (autofix pep8 errors)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <F8> :!autopep8 --in-place --aggressive --aggressive %
+
+
 " => Gundo (navigate through undo list)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F5> :GundoToggle<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => Jedi-vim 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " (refer to https://github.com/davidhalter/jedi-vim#faq)
@@ -193,19 +203,19 @@ let g:jedi#auto_close_doc = 1  "automatically close doc window
 "let g:jedi#documentation_command = 'K'
 let g:jedi#max_doc_height=20  "height of the doc window
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => Pydoc 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open docs with <leader>pw or <leader>pW
 filetype plugin on
 let g:pydoc_highlight = 0 " Don't highlight word when open word definition 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => Pydocstring 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pydocstring_templates_dir = $HOME."/.vim/pydocstring-templates/"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => Supertab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " au FileType python set omnifunc=pythoncomplete#Complete " This breaks Jedi
@@ -213,7 +223,7 @@ let g:SuperTabDefaultCompletionType = "context"
 " set completeopt=menuone,longest,preview  # kyle
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>" " always use omni completion (i.e. Jedi)
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => Syntastic (Syntax check)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " You can run checkers explicitly by calling :SyntasticCheck <checker
@@ -234,14 +244,14 @@ hi SpellBad ctermfg=darkblue ctermbg=yellow             " errors line
 hi error ctermfg=darkblue ctermbg=yellow                " errors sign
 hi SyntasticErrorSign ctermfg=darkblue ctermbg=yellow   " style errors sign
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => Tasklist 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
 map <leader>tl <Plug>TaskList
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" => Vim indent guides
+
+" => Vim indent guides
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " toggled with <Leader> ig
 let g:indent_guides_auto_colors = 0 " set colors manually
@@ -268,7 +278,6 @@ let g:indent_guides_enable_on_vim_startup=0 "autostart
 
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python-mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Documentation
@@ -315,22 +324,22 @@ let g:indent_guides_enable_on_vim_startup=0 "autostart
 "" Disable rope (refactoring)
 "let g:pymode_rope = 0 
                                                                                 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => Ropevim 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Go to definition and rename all occurrencies
 "map <leader>j :RopeGotoDefinition<CR>
 "map <leader>r :RopeRename<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" => Ulti-snips 
+
+" => Ulti-snips 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 "let g:UltiSnipsExpandTrigger="<Tab>"
 ""let g:UltiSnipsJumpForwardTrigger="<c-b>"
 ""let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " => YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Remap ycm keys to iterate over list, as by default are mapped to tab and
