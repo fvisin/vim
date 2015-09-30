@@ -93,7 +93,7 @@ set wrap " Wrap lines
 " set number " Show line numbers
 " set smarttab
 " set lbr " Set line break
-" set tw=500 " Set line break at 500 characters
+set tw=80 " Set line break at 80 characters
 
 
 " Generic stuff
