@@ -24,6 +24,7 @@
 
 " Plugins description
 " -------------------
+"  * autopep8: format code according to PEP8 specifications
 "  * gundo: diff with last saves
 "  * jedi-vim: does everything :)
 "  * pydocstring: inserts templates for the documentation
@@ -33,6 +34,7 @@
 "  * syntastic: syntax check in vim (a syntax checker has to be installed) 
 "  * tasklist: lists of every todo in the code
 "  * vim-indent-guides: adds indentation guides
+"  * vim-pep8-text-width: wraps text at 79 char for code and 72 for comments (PEP8 specifications)
 "  * vim-yaml: indentation settings for yaml files
 
 " Disabled
@@ -52,21 +54,24 @@ call vundle#begin() " you can also pass a path where Vundle should install plugi
 " To modify: add or remove, close .vimrc, open any file with vim and run :PluginInstall
 " see :h vundle for more details or wiki for FAQ
 Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle (required!)  
+
 Plugin 'hhatto/autopep8'
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
 Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
 Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}
 Plugin 'tomtom/tlib_vim'  " (snipmate requirement)
 Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
 Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
 Plugin 'honza/vim-snippets', {'name': 'snippets'}
-Plugin 'avakhov/vim-yaml'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'jimf/vim-pep8-text-width'
+Plugin 'avakhov/vim-yaml'
 " Plugin 'fs111/pydoc.vim', {'name': 'pydoc'}
 " Plugin 'klen/python-mode'  " Apparently not compatible with jedi-vim
+" Also, the indent directory contains a script to automatically indent python
 
 " TODO: C++ 
 " http://www.zwiener.org/vimautocomplete.html
@@ -83,17 +88,18 @@ set autoindent " New line inherits indentation from the previous line
 set nosmartindent " Avoid losing indentation when inserting '#'
 set cindent " Should be smarter than smartindent. Autoindents after brackets, ..
 set tabstop=4 " 1 Tab = 4 spaces
+set softtabstop=4 " Number of spaces for tab in insert mode
 set shiftwidth=4 " 1 Tab = 4 spaces
+set smarttab " interpret Tab depending on where is the cursor
 set expandtab " Substitute tabs with spaces
-set ai " Auto indent
-set si " Smart indent
+set ai " Auto indent: copy indentation from previous line
 set wrap " Wrap lines
-" set list " show tabs
+" set textwidth=80 " Set line break at 80 characters --> vim-pep8-text-width
+" set formatoptions+=t " Enable automatic text wrapping --> vim-pep8-text-width
+" set si " Smart indent: automatically insert one extra level in some cases
 " set listchars=tab:\|\<Space> " how to highlight tabs
 " set number " Show line numbers
-" set smarttab
 " set lbr " Set line break
-set tw=80 " Set line break at 80 characters
 
 
 " Generic stuff
@@ -110,6 +116,8 @@ set showmatch " Show matching brackets
 set mat=2 " How many tenths of a second to blink when matching brackets
 set encoding=utf8 " Set utf8 as standard encoding and en_US as the standard language
 set ffs=unix,dos,mac " Use Unix as the standard file type
+let mapleader=","
+set tm=500 " Timeout after leader key
 " set hid " A buffer becomes hidden when it is abandoned
 " set magic " For regular expressions turn magic on
 
@@ -135,15 +143,21 @@ syntax on " Enable syntax highlighting
 filetype on " Try to detect filetypes
 filetype plugin indent on " Turn on filetype-specific indenting modes and plugins
 let python_highlight_all=1 " Extra highlights
-set tm=500
 
 " Colors --> not working well, it's a mess.
 "set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
 "colo fra  " use my color scheme
+
+" Highlight text that is longer than 80 characters
 "if exists('+colorcolumn') " Draw a yellow column after 80 lines and after 120 
 "    let &colorcolumn="80,".join(range(120,999),",") 
 "    hi ColorColumn ctermfg=yellow ctermbg=232 guibg=#2c2d27
 "endif
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * match OverLength /\%80v.*/
+augroup END
+
 " Error and warning highlight colors 
 "hi Search ctermfg=237 ctermbg=178 " Colors for search
 
@@ -205,13 +219,6 @@ let g:jedi#max_doc_height=20  "height of the doc window
 let g:jedi#goto_command = "<leader>d" "set goto defition command
 
 
-" => Pydoc 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Open docs with <leader>pw or <leader>pW
-filetype plugin on
-let g:pydoc_highlight = 0 " Don't highlight word when open word definition 
-
-
 " => Pydocstring 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pydocstring_templates_dir = $HOME."/.vim/pydocstring-templates/"
@@ -248,7 +255,6 @@ hi SyntasticErrorSign ctermfg=darkblue ctermbg=yellow   " style errors sign
 
 " => Tasklist 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","
 map <leader>tl <Plug>TaskList
 
 
@@ -277,6 +283,12 @@ let g:indent_guides_enable_on_vim_startup=0 "autostart
 
 " DISABLED
 
+
+
+" => Pydoc 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Open docs with <leader>pw or <leader>pW
+" let g:pydoc_highlight = 0 " Don't highlight word when open word definition 
 
 
 " => Python-mode
