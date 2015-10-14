@@ -196,6 +196,10 @@ EOF
 " Map jj to <Esc>
 imap jj <Esc>
 
+" Enable syntax highlighting for .bash_aliases
+au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_aliases,.bash_profile*,.bash_logout*,*.bash,*.ebuild set filetype=sh
+"call SetFileTypeSH("bash")
+
 
 
 " => Autopep8 (autofix pep8 errors)
