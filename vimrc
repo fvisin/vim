@@ -109,7 +109,7 @@ set autoread " Set to auto read when a file is changed from the outside
 set so=7 " Set 7 lines to the cursor - when moving vertically using j/k
 set wildmenu " Turn on the WiLd menu (autocomplete :commands)
 set ruler " Always show current position
-set cmdheight=2 " Height of the command bar
+set cmdheight=1 " Height of the command bar
 set backspace=eol,start,indent " Configure backspace so it acts as it should act
 set whichwrap+=<,>,h,l " idem
 set lazyredraw " Don't redraw while executing macros (good performance config)
