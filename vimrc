@@ -133,6 +133,12 @@ set nobackup
 set nowb
 set noswapfile
 
+" Redefine uppercase close and write because c'mon, it's not even a command!
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
 " Move between windows with alt+arrows
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
