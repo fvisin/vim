@@ -63,7 +63,7 @@ Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}
 Plugin 'tomtom/tlib_vim'  " (snipmate requirement)
 Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
 Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
-Plugin 'honza/vim-snippets', {'name': 'snippets'}
+Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " fork of garbas/vim-snipmate without annoying . snippet
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
