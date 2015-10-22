@@ -20,8 +20,9 @@
 " [M                    Jump on previous class or method (normal, visual, operator modes) (jedi through rope)
 " ]M                    Jump on next class or method (normal, visual, operator modes) (jedi through rope)
 
-"<F5>                   Navigate through undos
-"<F8>                   Autofix PEP8 errors
+" <F5>                  Navigate through undos
+" <F8>                  Autofix PEP8 errors
+" Ctrl-g                Shows the current filename
 
 " Plugins description
 " -------------------
@@ -40,8 +41,16 @@
 
 " Disabled
 "  * pydoc: shows the documentation of the current command
+"  * python-mode: apparently not compatible with jedi-vim
 
+" Also, the indent directory contains a script to automatically indent python
 
+" Notes
+" * make sure .viminfo is owned by your user
+" * to select text with mouse keep shift pressed
+" * to have code completion in an environment, set VIRTUAL_ENV=/path/to/the/environment 
+" * To add or remove plugins, edit .vimrc, (re)open vim, run :PluginInstall or
+"   :PluginClean. See ':h vundle' for more details or Vundle wiki for FAQ
 
 " Vundle + plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -52,8 +61,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin() " you can also pass a path where Vundle should install plugins
 
 " The installed bundles 
-" To modify: add or remove, close .vimrc, open any file with vim and run :PluginInstall
-" see :h vundle for more details or wiki for FAQ
 Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle (required!)  
 
 Plugin 'hhatto/autopep8'
@@ -72,7 +79,6 @@ Plugin 'jimf/vim-pep8-text-width'
 Plugin 'avakhov/vim-yaml'
 " Plugin 'fs111/pydoc.vim', {'name': 'pydoc'}
 " Plugin 'klen/python-mode'  " Apparently not compatible with jedi-vim
-" Also, the indent directory contains a script to automatically indent python
 
 " TODO: C++ 
 " http://www.zwiener.org/vimautocomplete.html
@@ -84,7 +90,69 @@ filetype plugin indent on    " required
 
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Indentation and tab settings
+" *** Generic stuff
+set history=700 " Sets how many lines of history VIM has to remember
+set autoread " Set to auto read when a file is changed from the outside
+set so=7 " Scroll to keep the cursor n lines above/under the end/top of the page
+set wildmenu " Turn on the WiLd menu (autocomplete :commands)
+set backspace=eol,start,indent " Configure backspace so it acts as it should act
+set whichwrap+=<,>,h,l " idem
+set lazyredraw " Don't redraw while executing macros (good performance config)
+set showmatch " Show matching brackets
+set mat=3 " How many tenths of a second to blink when matching brackets
+set encoding=utf8 " Set utf8 as standard encoding and en_US as the standard language
+set ffs=unix,dos,mac " Use Unix as the standard file type
+let mapleader=","
+set tm=500 " Timeout after leader key
+map <C-Z> <Nop> " Prevent ctrl-z from closing vim 
+" Enable syntax highlighting for .bash_aliases
+au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_aliases,.bash_profile*,.bash_logout*,*.bash,*.ebuild set filetype=sh
+"call SetFileTypeSH("bash")
+"set laststatus=2 --> status is very useful, but wastes one line
+"set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L" " Show filename in status bar
+" set hid " A buffer becomes hidden when it is abandoned
+" set magic " For regular expressions turn magic on
+
+" *** GUI personalization
+set ruler " Always show current position
+set rulerformat=%l,%c%V%=%P " show line and percentage (default)
+set cmdheight=1 " Height of the command bar
+
+" Search options
+set hlsearch " Highlight results of search
+set incsearch " Makes search act like search in modern browsers
+set ignorecase " Do case insensitive matching
+set smartcase " Search case sensitive only if you type uppercase
+
+" *** Errors and warnings notifications
+" Syntax highlight and colors
+syntax on " Enable syntax highlighting
+filetype on " Try to detect filetypes
+filetype plugin indent on " Turn on filetype-specific indenting modes and plugins
+let python_highlight_all=1 " Extra highlights
+" Colors : not working well, it's a mess.
+" set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
+" colo fra  " use my color scheme
+" Highlight text that is longer than 80 characters
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * match OverLength /\%80v.*/
+augroup END
+"if exists('+colorcolumn') " Draw a yellow column after 80 lines and after 120 
+"    let &colorcolumn="80,".join(range(120,999),",") 
+"    hi ColorColumn ctermfg=yellow ctermbg=232 guibg=#2c2d27
+"endif
+
+" Error and warning highlight colors 
+"hi Search ctermfg=237 ctermbg=178 " Colors for search
+
+" *** No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" *** Indentation and tab settings
 set autoindent " New line inherits indentation from the previous line
 set nosmartindent " Avoid losing indentation when inserting '#'
 set cindent " Should be smarter than smartindent. Autoindents after brackets, ..
@@ -102,91 +170,36 @@ set wrap " Wrap lines
 " set number " Show line numbers
 " set lbr " Set line break
 
-
-" Generic stuff
-set history=700 " Sets how many lines of history VIM has to remember
-set autoread " Set to auto read when a file is changed from the outside
-set so=7 " Set 7 lines to the cursor - when moving vertically using j/k
-set wildmenu " Turn on the WiLd menu (autocomplete :commands)
-set ruler " Always show current position
-set cmdheight=1 " Height of the command bar
-set backspace=eol,start,indent " Configure backspace so it acts as it should act
-set whichwrap+=<,>,h,l " idem
-set lazyredraw " Don't redraw while executing macros (good performance config)
-set showmatch " Show matching brackets
-set mat=2 " How many tenths of a second to blink when matching brackets
-set encoding=utf8 " Set utf8 as standard encoding and en_US as the standard language
-set ffs=unix,dos,mac " Use Unix as the standard file type
-let mapleader=","
-set tm=500 " Timeout after leader key
-" set hid " A buffer becomes hidden when it is abandoned
-" set magic " For regular expressions turn magic on
-
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-" Files, backups and undo
+" *** Files, backups and undo
 set nobackup 
 set nowb
 set noswapfile
 
-" Redefine uppercase close and write because c'mon, it's not even a command!
+" *** Personalized commands
+" Redefine W and Q because c'mon, they are not even a command!
 command WQ wq
 command Wq wq
 command W w
 command Q q
-
 " Move between windows with alt+arrows
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
+" Map jj to <Esc>
+imap jj <Esc>
 
-" Syntax highlight and colors
-syntax on " Enable syntax highlighting
-filetype on " Try to detect filetypes
-filetype plugin indent on " Turn on filetype-specific indenting modes and plugins
-let python_highlight_all=1 " Extra highlights
-
-" Colors --> not working well, it's a mess.
-"set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
-"colo fra  " use my color scheme
-
-" Highlight text that is longer than 80 characters
-"if exists('+colorcolumn') " Draw a yellow column after 80 lines and after 120 
-"    let &colorcolumn="80,".join(range(120,999),",") 
-"    hi ColorColumn ctermfg=yellow ctermbg=232 guibg=#2c2d27
-"endif
-augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
-  autocmd BufEnter * match OverLength /\%80v.*/
-augroup END
-
-" Error and warning highlight colors 
-"hi Search ctermfg=237 ctermbg=178 " Colors for search
-
-" Search options
-set hlsearch " Highlight results of search
-set incsearch " Makes search act like search in modern browsers
-set ignorecase " Do case insensitive matching
-set smartcase " Search case sensitive only if you type uppercase
-
+" *** Hacks
 " Strip trailing whitespace off all lines every time you save a .py or .pyx file
 autocmd BufWritePre *.py,*.pyx :%s/\s\+$//e
-
 " Jump to the last position when reopening a file (NB: .viminfo should be owned by your user)
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-
-" Vim scrolling (!!!) - NOTE: to select text with mouse keep shift pressed
+" Vim scrolling 
 set mouse=a
 "set ttymouse=xterm
-
-" Add the virtualenv's site-packages to vim path to have the code completion
+" Code completition in virtual environments
 py << EOF
 import os.path
 import sys
@@ -199,12 +212,10 @@ if 'VIRTUAL_ENV' in os.environ:
     #execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-" Map jj to <Esc>
-imap jj <Esc>
 
-" Enable syntax highlighting for .bash_aliases
-au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_aliases,.bash_profile*,.bash_logout*,*.bash,*.ebuild set filetype=sh
-"call SetFileTypeSH("bash")
+
+
+
 
 
 
