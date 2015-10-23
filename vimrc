@@ -19,6 +19,7 @@
 " ]]                    Jump on next class or function (normal, visual, operator modes)  (jedi through rope)
 " [M                    Jump on previous class or method (normal, visual, operator modes) (jedi through rope)
 " ]M                    Jump on next class or method (normal, visual, operator modes) (jedi through rope)
+" Ctrl-W                Go to next error
 
 " <F5>                  Navigate through undos
 " <F8>                  Autofix PEP8 errors
@@ -175,7 +176,7 @@ set nobackup
 set nowb
 set noswapfile
 
-" *** Personalized commands
+" *** Personalized key bindings
 " Redefine W and Q because c'mon, they are not even a command!
 command WQ wq
 command Wq wq
@@ -188,6 +189,8 @@ nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 " Map jj to <Esc>
 imap jj <Esc>
+" Map ctrl-W to next error
+nmap <C-W> :lnext<CR>
 
 " *** Hacks
 " Strip trailing whitespace off all lines every time you save a .py or .pyx file
@@ -270,6 +273,8 @@ let g:syntastic_python_checkers = ['flake8'] "use one of the following checkers:
 let g:syntastic_enable_highlighting = 1  "highlight errors and warnings
 let g:syntastic_style_error_symbol = ">>" "error symbol
 let g:syntastic_warning_symbol = ">>" "warning symbol
+let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 1 "populate error list so that we can cycle through them
 "let g:syntastic_auto_loc_list=1  "open list of errors
 let g:syntastic_loc_list_height = 5  "list length
 let g:syntastic_auto_jump = 0  "do not jump to errors when detected
