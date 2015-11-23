@@ -191,6 +191,8 @@ nmap <silent> <A-Right> :wincmd l<CR>
 imap jj <Esc>
 " Map ctrl-W to next error
 nmap <C-W> :lnext<CR>
+" When in normal mode, press Space followed by the character that you want to insert.
+:nnoremap <Space> i_<Esc>r
 
 " *** Hacks
 " Strip trailing whitespace off all lines every time you save a .py or .pyx file
