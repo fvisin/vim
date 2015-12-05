@@ -37,3 +37,6 @@
 [submodule "/u/visin/.vim/bundle/Vundle.vim"]
 	path = /u/visin/.vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "bundle/snipmate-snippets"]
+	path = bundle/snipmate-snippets
+	url = git@github.com:fvisin/vim-snippets.git
