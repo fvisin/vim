@@ -89,24 +89,55 @@ filetype plugin indent on    " required
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" *** Generic stuff
-set history=700 " Sets how many lines of history VIM has to remember
-set autoread " Set to auto read when a file is changed from the outside
-set so=7 " Scroll to keep the cursor n lines above/under the end/top of the page
-set wildmenu " Turn on the WiLd menu (autocomplete :commands)
-set backspace=eol,start,indent " Configure backspace so it acts as it should act
-set whichwrap+=<,>,h,l " idem
-set lazyredraw " Don't redraw while executing macros (good performance config)
-set showmatch " Show matching brackets
-set showcmd " Show incomplete commands
-set mat=3 " How many tenths of a second to blink when matching brackets
-set encoding=utf8 " Set utf8 as standard encoding and en_US as the standard language
-set ffs=unix,dos,mac " Use Unix as the standard file type
+" Sets how many lines of history VIM has to remember
+set history=700 
+
+" Set to auto read when a file is changed from the outside
+set autoread 
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent 
+set whichwrap+=<,>,h,l
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw 
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8 
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac 
 let mapleader=","
-set tm=500 " Timeout after leader key
-map <C-Z> <Nop> " Prevent ctrl-z from closing vim 
+
+" Timeout after leader key
+set tm=500 
+
+" Prevent ctrl-z from closing vim 
+map <C-Z> <Nop> 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Scroll to keep the cursor n lines above/under the end/top of the page
+set so=7 
+
+" Turn on the WiLd menu (autocomplete :commands)
+set wildmenu 
+set wildmode=longest:list,full
+
+" Show matching brackets
+set showmatch 
+
+" Show incomplete commands
+set showcmd 
+
+" How many tenths of a second to blink when matching brackets
+set mat=3 
+
 " Enable syntax highlighting for .bash_aliases
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_aliases,.bash_profile*,.bash_logout*,*.bash,*.ebuild set filetype=sh
 "call SetFileTypeSH("bash")
@@ -115,23 +146,41 @@ au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_aliases,.bash_profile*,.
 " set hid " A buffer becomes hidden when it is abandoned
 " set magic " For regular expressions turn magic on
 
-" *** GUI personalization
-set ruler " Always show current position
-set rulerformat=%l,%c%V%=%P " show line and percentage (default)
-set cmdheight=1 " Height of the command bar
+" Always show current position
+set ruler 
 
-" Search options
-set hlsearch " Highlight results of search
-set incsearch " Makes search act like search in modern browsers
-set ignorecase " Do case insensitive matching
-set smartcase " Search case sensitive only if you type uppercase
+" show line and percentage (default)
+set rulerformat=%l,%c%V%=%P 
 
-" *** Errors and warnings notifications
+" Height of the command bar
+set cmdheight=1 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Search options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight results of search
+set hlsearch 
+
+" Makes search act like search in modern browsers
+set incsearch 
+
+" Do case insensitive matching
+set ignorecase 
+
+" Search case sensitive only if you type uppercase
+set smartcase 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Errors and warnings notifications
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax highlight and colors
 syntax on " Enable syntax highlighting
 filetype on " Try to detect filetypes
 filetype plugin indent on " Turn on filetype-specific indenting modes and plugins
 let python_highlight_all=1 " Extra highlights
+
 " Colors : not working well, it's a mess.
 " set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
 " colo fra  " use my color scheme
@@ -154,7 +203,10 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" *** Indentation and tab settings
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent " New line inherits indentation from the previous line
 set nosmartindent " Avoid losing indentation when inserting '#'
 set cindent " Should be smarter than smartindent. Autoindents after brackets, ..
@@ -172,12 +224,18 @@ set wrap " Wrap lines
 " set number " Show line numbers
 " set lbr " Set line break
 
-" *** Files, backups and undo
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nobackup 
 set nowb
 set noswapfile
 
-" *** Personalized key bindings
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Personalized key bindings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Redefine W and Q because c'mon, they are not even a command!
 command WQ wq
 command Wq wq
@@ -194,10 +252,25 @@ imap jj <Esc>
 nmap <C-W> :lnext<CR>
 " When in normal mode, press Space followed by the character that you want to insert.
 :nnoremap <Space> i_<Esc>r
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
 
-" *** Hacks
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Hacks
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Strip trailing whitespace off all lines every time you save a .py or .pyx file
 autocmd BufWritePre *.py,*.pyx :%s/\s\+$//e
+
+" Delete trailing white space on save
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
 " Jump to the last position when reopening a file (NB: .viminfo should be owned by your user)
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
