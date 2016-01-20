@@ -31,6 +31,7 @@
 "  * gundo: diff with last saves
 "  * jedi-vim: does everything :)
 "  * pydocstring: inserts templates for the documentation
+"  * solarized: solarized theme for vim
 "  * snipmate: allows to insert snippets with <snippet_name> + <Tab>
 "  * snippets: snipmate custom snippets directory
 "  * supertab: provides autocomplete with TAB
@@ -68,6 +69,7 @@ Plugin 'hhatto/autopep8'
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
 Plugin 'davidhalter/jedi-vim'
 Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}
+Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'}
 Plugin 'tomtom/tlib_vim'  " (snipmate requirement)
 Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
 Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
@@ -148,6 +150,7 @@ au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_aliases,.bash_profile*,.
 
 " Always show current position
 set ruler 
+set background=light
 
 " show line and percentage (default)
 set rulerformat=%l,%c%V%=%P 
@@ -180,10 +183,10 @@ syntax on " Enable syntax highlighting
 filetype on " Try to detect filetypes
 filetype plugin indent on " Turn on filetype-specific indenting modes and plugins
 let python_highlight_all=1 " Extra highlights
-
-" Colors : not working well, it's a mess.
+" Colors
 " set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
-" colo fra  " use my color scheme
+colo solarized " use the solarized color scheme
+set background=dark " use the dark background scheme
 " Highlight text that is longer than 80 characters
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929

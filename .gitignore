@@ -13,3 +13,6 @@ bundle/vim-indent-guides/
 bundle/vim-yaml
 bundle/autopep8/
 bundle/vim-pep8-text-width
+.netrwhist
+bundle/vim-colors-solarized/
+    
