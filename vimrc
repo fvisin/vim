@@ -142,6 +142,7 @@ set mat=3
 
 " Enable syntax highlighting for .bash_aliases
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_aliases,.bash_profile*,.bash_logout*,*.bash,*.ebuild set filetype=sh
+au BufNewFile,BufRead *.txt set filetype=rest
 "call SetFileTypeSH("bash")
 "set laststatus=2 --> status is very useful, but wastes one line
 "set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L" " Show filename in status bar
