@@ -31,6 +31,8 @@
 "  * gundo: diff with last saves
 "  * jedi-vim: does everything :)
 "  * pydocstring: inserts templates for the documentation
+"  * tomtom/tlib_vim: (snipmate requirement)
+"  * MarcWeber/vim-addon-mw-utils: (snipmate requirement)
 "  * snipmate: allows to insert snippets with <snippet_name> + <Tab>
 "  * snippets: snipmate custom snippets directory
 "  * supertab: provides autocomplete with TAB
