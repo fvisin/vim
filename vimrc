@@ -32,6 +32,7 @@
 "  * jedi-vim: does everything :)
 "  * pydocstring: inserts templates for the documentation
 "  * tomtom/tlib_vim: (snipmate requirement)
+"  * solarized: solarized theme for vim
 "  * MarcWeber/vim-addon-mw-utils: (snipmate requirement)
 "  * snipmate: allows to insert snippets with <snippet_name> + <Tab>
 "  * snippets: snipmate custom snippets directory
@@ -70,6 +71,7 @@ Plugin 'hhatto/autopep8'
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
 Plugin 'davidhalter/jedi-vim'
 Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}
+Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'}
 Plugin 'tomtom/tlib_vim'  " (snipmate requirement)
 Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
 Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
@@ -142,6 +144,7 @@ set mat=3
 
 " Enable syntax highlighting for .bash_aliases
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_aliases,.bash_profile*,.bash_logout*,*.bash,*.ebuild set filetype=sh
+au BufNewFile,BufRead *.txt set filetype=rest
 "call SetFileTypeSH("bash")
 "set laststatus=2 --> status is very useful, but wastes one line
 "set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L" " Show filename in status bar
@@ -182,10 +185,10 @@ syntax on " Enable syntax highlighting
 filetype on " Try to detect filetypes
 filetype plugin indent on " Turn on filetype-specific indenting modes and plugins
 let python_highlight_all=1 " Extra highlights
-
-" Colors : not working well, it's a mess.
+" Colors
 " set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
-" colo fra  " use my color scheme
+colo solarized " use the solarized color scheme
+set background=dark " use the dark background scheme
 " Highlight text that is longer than 80 characters
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929

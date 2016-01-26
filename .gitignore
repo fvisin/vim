@@ -1,3 +1,5 @@
+.netrwhist
+bundle/autopep8/
 bundle/gundo
 bundle/jedi-vim
 bundle/pydoc
@@ -9,7 +11,8 @@ bundle/syntastic
 bundle/tasklist
 bundle/tlib_vim
 bundle/vim-addon-mw-utils
+bundle/vim-colors-solarized/
 bundle/vim-indent-guides/
-bundle/vim-yaml
-bundle/autopep8/
 bundle/vim-pep8-text-width
+bundle/vim-yaml
+bundle/Vundle.vim
