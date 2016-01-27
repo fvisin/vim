@@ -191,7 +191,7 @@ colo solarized " use the solarized color scheme
 set background=dark " use the dark background scheme
 " Highlight text that is longer than 80 characters
 augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * highlight OverLength ctermbg=0 
   autocmd BufEnter * match OverLength /\%80v.*/
 augroup END
 "if exists('+colorcolumn') " Draw a yellow column after 80 lines and after 120 
@@ -200,7 +200,7 @@ augroup END
 "endif
 
 " Error and warning highlight colors 
-"hi Search ctermfg=237 ctermbg=178 " Colors for search
+hi Search ctermfg=237 ctermbg=178 " Colors for search
 
 " *** No annoying sound on errors
 set noerrorbells
@@ -361,12 +361,11 @@ let g:syntastic_loc_list_height = 5  "list length
 let g:syntastic_auto_jump = 0  "do not jump to errors when detected
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'  "show number of errors and warnings
 "set the colour of errors and warnings 
-"hi SpellBad ctermfg=237  ctermbg=178
-"hi error ctermfg=237 ctermbg=178                       " errors sign
-"hi SyntasticErrorSign ctermfg=237 ctermbg=178          " style errors sign
-hi SpellBad ctermfg=darkblue ctermbg=yellow             " errors line
-hi error ctermfg=darkblue ctermbg=yellow                " errors sign
-hi SyntasticErrorSign ctermfg=darkblue ctermbg=yellow   " style errors sign
+hi SpellBad ctermfg=235 ctermbg=166                       " errors line 
+" hi error ctermfg=237 ctermbg=178                        " errors sign
+hi SyntasticErrorSign ctermfg=166 cterm=bold              " style errors sign 
+" hi error ctermfg=darkblue ctermbg=yellow                " errors sign
+" hi SyntasticErrorSign ctermfg=darkblue ctermbg=yellow   " style errors sign
 
 
 " => Tasklist 
