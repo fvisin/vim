@@ -186,7 +186,8 @@ filetype on " Try to detect filetypes
 filetype plugin indent on " Turn on filetype-specific indenting modes and plugins
 let python_highlight_all=1 " Extra highlights
 " Colors
-" set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
+" set term=xterm
+set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
 colo solarized " use the solarized color scheme
 set background=dark " use the dark background scheme
 " Highlight text that is longer than 80 characters
