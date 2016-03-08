@@ -2,9 +2,6 @@
 
 * Install vundle: `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
-* Old vim versions (e.g. Lisa's) require you to copy vimrc to ~/.vimrc
-  i.e., `cp ~/.vim/vimrc ~/.vimrc` 
-
 * Open vim and run `:PluginInstall` to install the plugins 
 
 * Install python flake8 or any other syntax checker allowed by syntastic
@@ -16,9 +13,5 @@
   uninstall it.
 
 * Note: DO NOT install jedi as a system package. If you have it as system package, remove it.
-
-* Note: Lisa's vim version behaves differently than the latest vim. 
-  The pydocstring-templates works on the legacy version but add an extra space on
-  newer versions. Edit the templates in bundle/pydocstring-templates according to your needs.
 
 * Read the vimrc docstring to learn about the shortcuts keys of the tools
