@@ -39,8 +39,11 @@
 "  * supertab: provides autocomplete with TAB
 "  * syntastic: syntax check in vim (a syntax checker has to be installed) 
 "  * tasklist: lists of every todo in the code
+"  * unite.vim: search and display information from arbitrary sources like files, buffers, ..
 "  * vim-indent-guides: adds indentation guides
+"  * vim-markdown: syntax highlighting for markdown
 "  * vim-pep8-text-width: wraps text at 79 char for code and 72 for comments (PEP8 specifications)
+"  * vim-repeat: enhance vim's last command repetition with '.'
 "  * vim-yaml: indentation settings for yaml files
 
 " Disabled
@@ -79,8 +82,11 @@ Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " fork of garba
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
+Plugin 'Shougo/unite.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'jimf/vim-pep8-text-width'
+Plugin 'tpope/vim-repeat'
 Plugin 'avakhov/vim-yaml'
 " Plugin 'fs111/pydoc.vim', {'name': 'pydoc'}
 " Plugin 'klen/python-mode'  " Apparently not compatible with jedi-vim
