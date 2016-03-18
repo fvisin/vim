@@ -12,7 +12,6 @@
 " <Ctrl-Space>          Rope autocomplete (jedi through rope)
 
 " <leader> tl           opens TaskList (shows every todo)
-" <F5>                  Gundo popup (diff with last saves)
 " <leader> r            Deletes the word under the cursor and enters insert mode. When insert mode is left, it will rename all the occurrencies
 " <leader> n            List of all names which point to the definition of the name under the cursor
 " [[                    Jump on previous class or function (normal, visual, operator modes) (jedi through rope)
@@ -21,9 +20,18 @@
 " ]M                    Jump on next class or method (normal, visual, operator modes) (jedi through rope)
 " Ctrl-W                Go to next error
 
-" <F5>                  Navigate through undos
-" <F8>                  Autofix PEP8 errors
+" <F4>                  Navigate through undos (with Gundo)
+" <F6>                  Autofix PEP8 errors
 " Ctrl-g                Shows the current filename
+"
+"
+" <F8>                  Enable spell-check
+" z                     View spelling suggestions for the mispelled word
+" zg                    Add the current word to the dictionary
+" zug                   Remove the current word from the dictionary
+" ]s                    Next mispelled word
+" [s                    Prev mispelled word
+" gqq                   Autowrap the current line
 
 " Plugins description
 " -------------------
@@ -81,6 +89,7 @@ Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
 Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " fork of garbas/vim-snipmate without annoying . snippet
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
+Plugin 'vim-latex/vim-latex'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
 Plugin 'Shougo/unite.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -266,6 +275,8 @@ nmap <C-W> :lnext<CR>
 :nnoremap <Space> i_<Esc>r
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
+" Acrivate spell check
+noremap <F8> :set spell spelllang=en_us <CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -312,12 +323,12 @@ EOF
 
 " => Autopep8 (autofix pep8 errors)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <F8> :!autopep8 --in-place --aggressive --aggressive %
+noremap <F6> :!autopep8 --in-place --aggressive --aggressive %
 
 
 " => Gundo (navigate through undo list)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F4> :GundoToggle<CR>
 
 
 " => Jedi-vim 
