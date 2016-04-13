@@ -283,7 +283,7 @@ noremap <F8> :set spell spelllang=en_us <CR>
 " => Hacks
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Strip trailing whitespace off all lines every time you save a .py or .pyx file
-autocmd BufWritePre *.py,*.pyx :%s/\s\+$//e
+autocmd BufWritePre *.py,*.pyx,*.tex :%s/\s\+$//e
 
 " Delete trailing white space on save
 func! DeleteTrailingWS()
