@@ -20,6 +20,7 @@
 " ]M                    Jump on next class or method (normal, visual, operator modes) (jedi through rope)
 " Ctrl-W                Go to next error
 
+" <F2>                  Toggle paste mode
 " <F4>                  Navigate through undos (with Gundo)
 " <F6>                  Autofix PEP8 errors
 " Ctrl-g                Shows the current filename
@@ -137,6 +138,8 @@ set tm=500
 " Prevent ctrl-z from closing vim 
 map <C-Z> <Nop> 
 
+" Set F2 to paste mode toggle
+set pastetoggle=<F2>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
