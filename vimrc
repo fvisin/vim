@@ -50,6 +50,7 @@
 "  * tasklist: lists of every todo in the code
 "  * unite.vim: search and display information from arbitrary sources like files, buffers, ..
 "  * vim-indent-guides: adds indentation guides
+"  * vim-gitgutter: show git diff in the gutter (sign column)
 "  * vim-markdown: syntax highlighting for markdown
 "  * vim-pep8-text-width: wraps text at 79 char for code and 72 for comments (PEP8 specifications)
 "  * vim-repeat: enhance vim's last command repetition with '.'
@@ -93,6 +94,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-latex/vim-latex'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
 Plugin 'Shougo/unite.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'jimf/vim-pep8-text-width'
