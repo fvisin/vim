@@ -8,6 +8,7 @@
 " def + <Tab>           Create snippet for new function
 " ipdb + <Tab>          Sets trace
 " <leader> ig           Toggle visualization of indent guides
+" :Ack foo [{dir}]      Search recursively
 
 " <Ctrl-Space>          Rope autocomplete (jedi through rope)
 
@@ -36,6 +37,7 @@
 
 " Plugins description
 " -------------------
+"  * ack: search recursively with :Ack [options] {pattern} [{directories}]
 "  * autopep8: format code according to PEP8 specifications
 "  * gundo: diff with last saves
 "  * jedi-vim: does everything :)
@@ -81,6 +83,7 @@ call vundle#begin() " you can also pass a path where Vundle should install plugi
 " The installed bundles 
 Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle (required!)  
 
+Plugin 'mileszs/ack.vim'
 Plugin 'hhatto/autopep8'
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
 Plugin 'davidhalter/jedi-vim'
