@@ -95,7 +95,6 @@ Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
 Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " fork of garbas/vim-snipmate without annoying . snippet
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
-Plugin 'vim-latex/vim-latex'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
 Plugin 'Shougo/unite.vim'
 Plugin 'svermeulen/vim-easyclip'
