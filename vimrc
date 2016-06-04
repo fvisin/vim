@@ -428,6 +428,9 @@ let g:indent_guides_start_level=2 " start showing indentation from the 2 level
 let g:indent_guides_guide_size=1 " dimension of the guide
 let g:indent_guides_enable_on_vim_startup=0 "autostart
 
+" => Vim markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vim_markdown_folding_disabled = 1
 
 
 
