@@ -102,7 +102,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
 Plugin 'Shougo/unite.vim'
-Plugin 'svermeulen/vim-easyclip'
+"Plugin 'svermeulen/vim-easyclip'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'plasticboy/vim-markdown'
