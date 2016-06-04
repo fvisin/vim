@@ -20,6 +20,7 @@
 " [M                    Jump on previous class or method (normal, visual, operator modes) (jedi through rope)
 " ]M                    Jump on next class or method (normal, visual, operator modes) (jedi through rope)
 " Ctrl-W                Go to next error
+" <leader> tt           open Tagbar
 
 " <F2>                  Toggle paste mode
 " <F4>                  Navigate through undos (with Gundo)
@@ -49,6 +50,7 @@
 "  * snippets: snipmate custom snippets directory
 "  * supertab: provides autocomplete with TAB
 "  * syntastic: syntax check in vim (a syntax checker has to be installed) 
+"  * tagbar: provides an easy way to browse the tags of the current file and get an overview of its structure.
 "  * tasklist: lists of every todo in the code
 "  * unite.vim: search and display information from arbitrary sources like files, buffers, ..
 "  * vim-indent-guides: adds indentation guides
@@ -97,6 +99,7 @@ Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " fork of garba
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 " Plugin 'vim-latex/vim-latex'
+Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
 Plugin 'Shougo/unite.vim'
 Plugin 'svermeulen/vim-easyclip'
@@ -410,6 +413,9 @@ hi SyntasticErrorSign ctermfg=166 cterm=bold              " style errors sign
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>tl <Plug>TaskList
 
+" => Tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>tt :TagbarToggle<CR>
 
 " => Vim indent guides
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
