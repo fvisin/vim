@@ -77,6 +77,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+nnoremap gm m
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin() " you can also pass a path where Vundle should install plugins
 
@@ -297,7 +298,7 @@ autocmd BufWritePre *.py,*.pyx,*.tex :%s/\s\+$//e
 
 " Delete trailing white space on save
 func! DeleteTrailingWS()
-  exe "normal mz"
+  exe "normal gmz"
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
@@ -335,6 +336,15 @@ EOF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <F6> :!autopep8 --in-place --aggressive --aggressive %
 
+
+" => Easyclip (Paste with buffer, substitute, ..)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:EasyClipUseCutDefaults=0  " disable default bindings (do not override m)
+" nmap d <Plug>MoveMotionPlug  " add the text cut with d and dd to the yank buffer
+" xmap d <Plug>MoveMotionXPlug
+" nmap dd <Plug>MoveMotionLinePlug
+" let g:EasyClipEnableBlackHoleRedirect=0  " keep d behaviour intact
+"let g:EasyClipUseSubstituteDefaults=1
 
 " => Gundo (navigate through undo list)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
