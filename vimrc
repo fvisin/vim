@@ -357,6 +357,7 @@ nnoremap <F4> :GundoToggle<CR>
 " => Jedi-vim 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " (refer to https://github.com/davidhalter/jedi-vim#faq)
+autocmd FileType python setlocal completeopt-=preview  "Disable docstring window popup
 let g:jedi#completions_command='<C-Space>'  "(def:<C-N>)
 let g:jedi#popup_on_dot = 0  "(def:1)
 let g:jedi#show_call_signatures = 2  " 0=disabled, 1=popup in the buffer (fucks up undos), 2=popup in command line (def: 1)
