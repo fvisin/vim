@@ -19,7 +19,7 @@
 " ]]                    Jump on next class or function (normal, visual, operator modes)  (jedi through rope)
 " [M                    Jump on previous class or method (normal, visual, operator modes) (jedi through rope)
 " ]M                    Jump on next class or method (normal, visual, operator modes) (jedi through rope)
-" Ctrl-W                Go to next error
+" Ctrl-W Ctrl-W         Go to next error
 " <leader> tt           open Tagbar
 
 " <F2>                  Toggle paste mode
@@ -284,7 +284,7 @@ nmap <silent> <A-Right> :wincmd l<CR>
 " Map jj to <Esc>
 imap jj <Esc>
 " Map ctrl-W to next error
-nmap <C-W> :lnext<CR>
+nmap <C-W><C-W> :lnext<CR>
 " When in normal mode, press Space followed by the character that you want to insert.
 :nnoremap <Space> i_<Esc>r
 " Disable highlight when <leader><cr> is pressed
