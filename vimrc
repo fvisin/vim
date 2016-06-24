@@ -24,12 +24,12 @@
 
 " <C-p>                 file search
 " <leader>s             content search
-" <leader>t             file_rec/async
+" <leader>r             file_rec/async
 " <leader>f             file
-" <leader>r             file_mru
+" <leader>m             file_mru
 " <leader>o             outline
 " <leader>y             history/yank
-" <leader>e             buffer
+" <leader>b             buffer
 "
 " <F2>                  Toggle paste mode
 " <F4>                  Navigate through undos (with Gundo)
@@ -431,16 +431,18 @@ nmap <leader>tt :TagbarToggle<CR>
 
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:unite_data_directory = '/tmp/vim/unite/'
+let g:unite_abbr_highlight = 'Keyword'
 nnoremap <C-p> :Unite file_rec/async<cr>  " File search
 nnoremap <leader>s :Unite grep:.<cr>  " Content search
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <silent><leader>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
+nnoremap <silent><leader>r :<C-u>Unite -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <silent><leader>m :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <silent><leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
+nnoremap <silent><leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
+nnoremap <silent> <leader>b :<C-u>Unite buffer bookmark<CR>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
