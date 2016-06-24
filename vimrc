@@ -51,29 +51,32 @@
 "  * autopep8: format code according to PEP8 specifications
 "  * gundo: diff with last saves
 "  * jedi-vim: does everything :)
+"  * neoyank.vim: used by unite to show yank history
 "  * pydocstring: inserts templates for the documentation
-"  * tomtom/tlib_vim: (snipmate requirement)
-"  * solarized: solarized theme for vim
-"  * MarcWeber/vim-addon-mw-utils: (snipmate requirement)
 "  * snipmate: allows to insert snippets with <snippet_name> + <Tab>
 "  * snippets: snipmate custom snippets directory
+"  * solarized: solarized theme for vim
 "  * supertab: provides autocomplete with TAB
 "  * syntastic: syntax check in vim (a syntax checker has to be installed) 
 "  * tagbar: provides an easy way to browse the tags of the current file and get an overview of its structure.
 "  * tasklist: lists of every todo in the code
-"  * neoyank.vim: used by unite to show yank history
+"  * tomtom/tlib_vim: (snipmate requirement)
+"  * unite-outline: used by unite to display outline
 "  * unite.vim: search and display information from arbitrary sources like files, buffers, ..
-"  * vim-indent-guides: adds indentation guides
-"  * vim-easyclip: enhance copy and paste
+"  * MarcWeber/vim-addon-mw-utils: (snipmate requirement)
 "  * vim-gitgutter: show git diff in the gutter (sign column)
+"  * vim-indent-guides: adds indentation guides
 "  * vim-markdown: syntax highlighting for markdown
 "  * vim-pep8-text-width: wraps text at 79 char for code and 72 for comments (PEP8 specifications)
+"  * vimproc-vim: used by unite to speed up search
 "  * vim-repeat: enhance vim's last command repetition with '.'
 "  * vim-yaml: indentation settings for yaml files
 
 " Disabled
 "  * pydoc: shows the documentation of the current command
 "  * python-mode: apparently not compatible with jedi-vim
+"  * vim-easyclip: enhance copy and paste
+"  * vim-latex
 
 " Also, the indent directory contains a script to automatically indent python
 
@@ -100,24 +103,26 @@ Plugin 'mileszs/ack.vim'
 Plugin 'hhatto/autopep8'
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
 Plugin 'davidhalter/jedi-vim'
+Plugin 'Shougo/neoyank.vim'
 Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}
-Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'}
-Plugin 'tomtom/tlib_vim'  " (snipmate requirement)
-Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
 Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
 Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " fork of garbas/vim-snipmate without annoying . snippet
+Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'}
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
-" Plugin 'vim-latex/vim-latex'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
-Plugin 'Shougo/neoyank.vim'
+Plugin 'tomtom/tlib_vim'  " (snipmate requirement)
+Plugin 'h1mesuke/unite-outline'
 Plugin 'Shougo/unite.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
 "Plugin 'svermeulen/vim-easyclip'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'vim-latex/vim-latex'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'jimf/vim-pep8-text-width'
+Plugin 'Shougo/vimproc.vim'  " used by unite
 Plugin 'tpope/vim-repeat'
 Plugin 'avakhov/vim-yaml'
 " Plugin 'fs111/pydoc.vim', {'name': 'pydoc'}
