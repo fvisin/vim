@@ -33,7 +33,7 @@
 "
 " <F2>                  Toggle paste mode
 " <F4>                  Navigate through undos (with Gundo)
-" <F6>                  Autofix PEP8 errors
+" <F6>                  Autofix PEP8 errors - Note it automatically saves the file!!!
 " Ctrl-g                Shows the current filename
 "
 "
@@ -442,10 +442,10 @@ nnoremap <C-p> :Unite file_rec/async<cr>  " File search
 nnoremap <leader>s :Unite grep:.<cr>  " Content search
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <silent><leader>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
-nnoremap <silent><leader>r :<C-u>Unite -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <silent><leader>f :<C-u>Unite -buffer-name=files   file<cr>
+nnoremap <silent><leader>r :<C-u>Unite -buffer-name=files   file_rec/async:!<cr>
 nnoremap <silent><leader>m :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <silent><leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
+nnoremap <silent><leader>o :<C-u>Unite -buffer-name=outline outline<cr>
 nnoremap <silent><leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
 nnoremap <silent> <leader>b :<C-u>Unite buffer bookmark<CR>
 
