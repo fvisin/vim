@@ -305,8 +305,10 @@ nmap <C-W><C-W> :lnext<CR>
 :nnoremap <Space> i_<Esc>r
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
-" Acrivate spell check
+" Activate spell check
 noremap <F8> :set spell spelllang=en_us <CR>
+" Auto spell check for tex and markdown
+autocmd FileType latex,tex,md,markdown setlocal spell
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
