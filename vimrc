@@ -76,7 +76,7 @@
 "  * pydoc: shows the documentation of the current command
 "  * python-mode: apparently not compatible with jedi-vim
 "  * vim-easyclip: enhance copy and paste
-"  * vim-latex
+"  * vim-latex: adds autocomplete and some other features for latex
 
 " Also, the indent directory contains a script to automatically indent python
 
@@ -558,6 +558,19 @@ let g:vim_markdown_folding_disabled = 1
 "let g:UltiSnipsExpandTrigger="<Tab>"
 ""let g:UltiSnipsJumpForwardTrigger="<c-b>"
 ""let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" => Vim latex
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Recommended in the documentation
+" set grepprg=grep\ -nH\ $*
+" filetype indent on
+" let g:tex_flavor='latex'
+" " TIP: if you write your \label's as \label{fig:something}, then if you
+" " " type in \ref{fig: and press <C-n> you will automatically cycle through
+" " " all the figure labels. Very useful!
+" set iskeyword+=:
+" let g:Imap_UsePlaceHolders=0 " disable placeholders
+" let g:Tex_AutoFolding=0  " disable automatic folding. Can still fold with
 
 
 " => YouCompleteMe
