@@ -315,7 +315,13 @@ autocmd FileType latex,tex,md,markdown setlocal spell
 " => Hacks
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Strip trailing whitespace off all lines every time you save a .py or .pyx file
-autocmd BufWritePre *.py,*.pyx,*.tex :%s/\s\+$//e
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre *.py,*.pyx,*.tex :call <SID>StripTrailingWhitespaces()
 
 " Delete trailing white space on save
 func! DeleteTrailingWS()
