@@ -1,5 +1,4 @@
 * Clone into ~/.vim: 
-
     git clone https://github.com/fvisin/vim.git ~/.vim
 
 * Install vundle: `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
