@@ -16,6 +16,7 @@
 * Install python flake8 or any other syntax checker allowed by syntastic
   Note: installing flake8 with pip on a system with flake8 installed as 
         system package can cause problems. In that case, 
+        
         ```
             pip uninstall flake8
             sudo apt-get install python-flake8  --reinstall
