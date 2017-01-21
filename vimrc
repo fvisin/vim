@@ -1,6 +1,6 @@
 " Hotkeys summary (note <leader> == ",")
 " ----------------
-" <leader> d            Rope goto definition (jedi through rope)
+" <leader> d            Rope goto definition (jedi through rope or YouCompleteMe)
 " <Ctrl>-o              Jump back
 " K                     Show documentation with jedi plugin
 
@@ -9,8 +9,6 @@
 " ipdb + <Tab>          Sets trace
 " <leader> ig           Toggle visualization of indent guides
 " :Ack foo [{dir}]      Search recursively
-
-" <Ctrl-Space>          Rope autocomplete (jedi through rope)
 
 " <leader> tl           opens TaskList (shows every todo)
 " <leader> r            Deletes the word under the cursor and enters insert mode. When insert mode is left, it will rename all the occurrencies
@@ -50,7 +48,6 @@
 "  * ack: search recursively with :Ack [options] {pattern} [{directories}]
 "  * autopep8: format code according to PEP8 specifications
 "  * gundo: diff with last saves
-"  * jedi-vim: does everything :)
 "  * neoyank.vim: used by unite to show yank history
 "  * pydocstring: inserts templates for the documentation
 "  * snipmate: allows to insert snippets with <snippet_name> + <Tab>
@@ -71,8 +68,10 @@
 "  * vimproc-vim: used by unite to speed up search
 "  * vim-repeat: enhance vim's last command repetition with '.'
 "  * vim-yaml: indentation settings for yaml files
+"  * YouCompleteMe: autocompletion + jump to definition (jedi alternative)
 
 " Disabled
+"  * jedi-vim: does everything :) --> too slow
 "  * pydoc: shows the documentation of the current command
 "  * python-mode: apparently not compatible with jedi-vim
 "  * vim-easyclip: enhance copy and paste
@@ -102,7 +101,8 @@ Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle (required!)
 Plugin 'mileszs/ack.vim'
 Plugin 'hhatto/autopep8'
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/neoyank.vim'
 Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}
 Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
@@ -587,6 +587,7 @@ let g:vim_markdown_folding_disabled = 1
 "let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 "let g:ycm_autoclose_preview_window_after_completion=1
 "nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>d :YcmCompleter GoTo<CR>
 
 
 

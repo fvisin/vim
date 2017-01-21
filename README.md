@@ -23,6 +23,9 @@
   Note also that pylint can cause problems sometimes. If this is the case,
   uninstall it.
 
+* Install YouCompleteMe by running `./install.py --clang-completer` in the 
+  `.bundle/YouCompleteMe` directory
+
 * Note: DO NOT install jedi as a system package. If you have it as system package, remove it.
 
 * Read the vimrc docstring to learn about the shortcuts keys of the tools
