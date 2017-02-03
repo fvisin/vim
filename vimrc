@@ -36,6 +36,7 @@
 "
 "
 " <F8>                  Enable spell-check
+" <F9>                  Toggle git gutter
 " z                     View spelling suggestions for the mispelled word
 " zg                    Add the current word to the dictionary
 " zug                   Remove the current word from the dictionary
@@ -466,6 +467,11 @@ function! s:unite_settings()
     imap <buffer> <C-j>   <Plug>(unite_select_next_line)
     imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
+
+
+" => Vim gutter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <F9> :GitGutterToggle<CR>
 
 
 " => Vim indent guides
