@@ -169,6 +169,9 @@ map <C-Z> <Nop>
 " Set F2 to paste mode toggle
 set pastetoggle=<F2>
 
+"Open new split panes to right and bottom
+set splitbelow
+set splitright
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
