@@ -1,6 +1,7 @@
 " Hotkeys summary (note <leader> == ",")
 " ----------------
 " <leader> d            Rope goto definition (jedi through rope or YouCompleteMe)
+" <leader> s            YouCompleteMe goto declaration
 " <Ctrl>-o              Jump back
 " K                     Show documentation with jedi plugin
 
@@ -596,14 +597,10 @@ let g:vim_markdown_folding_disabled = 1
 "let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 "let g:ycm_autoclose_preview_window_after_completion=1
 "nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>d :YcmCompleter GoTo<CR>
-
-
-
-
-
-
-
+"nnoremap <leader>d :YcmCompleter GoTo<CR>
+nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>s :YcmCompleter GoToDeclaration<CR>
+let g:ycm_seed_identifiers_with_syntax = 0  " preseed with language syntax keywords
 
 
 
