@@ -104,7 +104,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'hhatto/autopep8'
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
 "Plugin 'davidhalter/jedi-vim'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'Shougo/neoyank.vim'
 Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}
 Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
@@ -127,6 +127,7 @@ Plugin 'jimf/vim-pep8-text-width'
 Plugin 'Shougo/vimproc.vim'  " used by unite
 Plugin 'tpope/vim-repeat'
 Plugin 'avakhov/vim-yaml'
+Plugin 'Valloric/YouCompleteMe'
 " Plugin 'fs111/pydoc.vim', {'name': 'pydoc'}
 " Plugin 'klen/python-mode'  " Apparently not compatible with jedi-vim
 
@@ -403,6 +404,10 @@ let g:jedi#smart_auto_mappings=0  "fancy things like automatically add 'import' 
 " let g:jedi#use_tabs_not_buffers  "use tabs to go to a definition, etc (def: 0)
 " let g:jedi#use_splits_not_buffers  "use a split window instead of a buffer (def: 1, other: left, right, top, bottom, winwidth)
 
+" => LatexBox
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:LatexBox_latexmk_async=1  --> requires clientserver vim capability
+let g:LatexBox_latexmk_preview_continuously=1
 
 " => Pydocstring 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
