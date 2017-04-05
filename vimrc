@@ -103,22 +103,23 @@ Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle (required!)
 Plugin 'mileszs/ack.vim'
 Plugin 'hhatto/autopep8'
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}
-"Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'Shougo/neoyank.vim'
 Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}
-Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
+" Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
 Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " fork of garbas/vim-snipmate without annoying . snippet
+Plugin 'sirver/UltiSnips'
 Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'}
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
-Plugin 'tomtom/tlib_vim'  " (snipmate requirement)
+" Plugin 'tomtom/tlib_vim'  " (snipmate requirement)
 Plugin 'h1mesuke/unite-outline'
 Plugin 'Shougo/unite.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
-"Plugin 'svermeulen/vim-easyclip'
+" Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
+" Plugin 'svermeulen/vim-easyclip'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 " Plugin 'vim-latex/vim-latex'
@@ -576,9 +577,10 @@ let g:vim_markdown_folding_disabled = 1
 " => Ulti-snips 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<Tab>"
-""let g:UltiSnipsJumpForwardTrigger="<c-b>"
-""let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<space>"
+let g:UltiSnipsListSnippets="<c-tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " => Vim latex
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
