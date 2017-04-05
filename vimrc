@@ -6,8 +6,8 @@
 " K                     Show documentation with jedi plugin
 
 " Ctrl-l                Creates documentation of highlighted 'def' or 'class'
-" def + <Tab>           Create snippet for new function
-" ipdb + <Tab>          Sets trace
+" def + <ctrl-space>    Create snippet for new function
+" ipdb + <ctrl-space>   Sets trace
 " <leader> ig           Toggle visualization of indent guides
 " :Ack foo [{dir}]      Search recursively
 
@@ -577,7 +577,10 @@ let g:vim_markdown_folding_disabled = 1
 " => Ulti-snips 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<space>"
+" " Map to space
+" let g:UltiSnipsExpandTrigger="<nop>"
+" inoremap <expr> <space> pumvisible() ? "<space>=UltiSnips#ExpandSnippetOrJump()<space>" : "\<space>"
+let g:UltiSnipsExpandTrigger="<c-space>"
 let g:UltiSnipsListSnippets="<c-tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
