@@ -14,14 +14,23 @@
   to install the plugins 
 
 * Install python flake8 or any other syntax checker allowed by syntastic
-  Note: installing flake8 with pip on a system with flake8 installed as 
-        system package can cause problems. In that case,
-  ```
-  pip uninstall flake8
-  sudo apt-get install python-flake8  --reinstall
-  ```
-  Note also that pylint can cause problems sometimes. If this is the case,
-  uninstall it.
+
+  Troublechecking:
+  - installing flake8 with pip on a system with flake8 installed as system
+    package can cause problems. In that case,
+    ```
+    pip uninstall flake8
+    sudo apt-get install python-flake8  --reinstall
+    ```
+  - The pylint or flake8 binaries might use as a shebang the python binary that
+    was available during installation (e.g., some conda path, if installed from
+    a conda environment) that might not work when the environment is not
+    active.  Try replacing it with `#!/usr/bin/python` if the spellcheck
+    doesn't work.
+  - pylint can interfere with flake8 sometimes. If this is the case, try
+    reinstalling or uninstalling it.
+  - More generally, running `:SyntasticInfo` can provide some insight on the 
+    syntax checkers errors.
 
 * Install YouCompleteMe by running `./install.py --clang-completer` in the 
   `.bundle/YouCompleteMe` directory
