@@ -1,3 +1,5 @@
+### INSTALLATION
+
 * Clone into ~/.vim: 
   ```
   git clone https://github.com/fvisin/vim.git ~/.vim
@@ -15,7 +17,14 @@
 
 * Install python flake8 or any other syntax checker allowed by syntastic
 
-  Troublechecking:
+* Install YouCompleteMe by running `./install.py --clang-completer` in the 
+  `.bundle/YouCompleteMe` directory
+
+### USAGE
+
+* Read the vimrc docstring to learn about the shortcuts keys of the tools
+
+###  Troubleshooting:
   - installing flake8 with pip on a system with flake8 installed as system
     package can cause problems. In that case,
     ```
@@ -31,10 +40,5 @@
     reinstalling or uninstalling it.
   - More generally, running `:SyntasticInfo` can provide some insight on the 
     syntax checkers errors.
+  - DO NOT install jedi as a system package. If you have it as system package, remove it.
 
-* Install YouCompleteMe by running `./install.py --clang-completer` in the 
-  `.bundle/YouCompleteMe` directory
-
-* Note: DO NOT install jedi as a system package. If you have it as system package, remove it.
-
-* Read the vimrc docstring to learn about the shortcuts keys of the tools
