@@ -242,15 +242,29 @@ let python_highlight_all=1 " Extra highlights
 set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
 colo solarized " use the solarized color scheme
 set background=dark " use the dark background scheme
+" VERSION 1
 " Highlight text that is longer than 80 characters
-augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=0 
-  autocmd BufEnter * match OverLength /\%80v.*/
-augroup END
+" augroup vimrc_autocmds
+"   autocmd BufEnter * highlight OverLength ctermbg=0 
+"   autocmd BufEnter * match OverLength /\%80v.*/
+" augroup END
+" VERSION 2
 "if exists('+colorcolumn') " Draw a yellow column after 80 lines and after 120 
 "    let &colorcolumn="80,".join(range(120,999),",") 
 "    hi ColorColumn ctermfg=yellow ctermbg=232 guibg=#2c2d27
 "endif
+" VERSION 3
+function! HighlightTooLongLines()
+  highlight def link RightMargin Error
+  if &textwidth != 0
+     exec ('match RightMargin /\%>' . &textwidth . 'v.\+/')
+  endif
+endfunction
+
+augroup highlight_toolong2
+  au!
+  au FileType,BufEnter * call HighlightTooLongLines()
+augroup END
 
 " Error and warning highlight colors 
 hi Search ctermfg=237 ctermbg=178 " Colors for search
