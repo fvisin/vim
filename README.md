@@ -29,7 +29,7 @@
     package can cause problems. In that case,
     ```
     pip uninstall flake8
-    sudo apt-get install python-flake8  --reinstall
+    sudo apt-get install flake8 python-flake8  --reinstall
     ```
   - The pylint or flake8 binaries might use as a shebang the python binary that
     was available during installation (e.g., some conda path, if installed from
