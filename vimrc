@@ -521,8 +521,24 @@ nmap <leader>tt :TagbarToggle<CR>
 " **** Ulti-snips 
 " Trigger configuration. Do not use <tab> if you use 
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-space>"
-let g:UltiSnipsListSnippets="<c-tab>"
+"let g:UltiSnipsExpandTrigger="<c-space>"
+"let g:UltiSnipsListSnippets="<c-tab>"
+
+" Workaround to use tab in Ultisnips and have it co-exist with YouCompleteMe
+" https://github.com/SirVer/ultisnips/issues/376
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+let g:UltiSnipsExpandTrigger="<nop>"
+let g:ulti_expand_or_jump_res = 0
+function! <SID>ExpandSnippetOrReturn()
+  let snippet = UltiSnips#ExpandSnippetOrJump()
+  if g:ulti_expand_or_jump_res > 0
+    return snippet
+  else
+    return "\<CR>"
+  endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
 
 " To map to space
 " let g:UltiSnipsExpandTrigger="<nop>"
