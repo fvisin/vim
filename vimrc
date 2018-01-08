@@ -1,5 +1,4 @@
-" Hotkeys summary (note <leader> == ",")
-" ----------------
+" """"""""""""""""""""""" Summary (note: leader is ",") """""""""""""""""""""""
 " <leader> d            Rope goto definition (jedi through rope or YouCompleteMe)
 " <leader> s            YouCompleteMe goto declaration
 " <Ctrl>-o              Jump back
@@ -45,40 +44,6 @@
 " [s                    Prev mispelled word
 " gqq                   Autowrap the current line
 
-" Plugins description
-" -------------------
-"  * ack: search recursively with :Ack [options] {pattern} [{directories}]
-"  * autopep8: format code according to PEP8 specifications
-"  * gundo: diff with last saves
-"  * neoyank.vim: used by unite to show yank history
-"  * pydocstring: inserts templates for the documentation
-"  * snipmate: allows to insert snippets with <snippet_name> + <Tab>
-"  * snippets: snipmate custom snippets directory
-"  * solarized: solarized theme for vim
-"  * supertab: provides autocomplete with TAB
-"  * syntastic: syntax check in vim (a syntax checker has to be installed) 
-"  * tagbar: provides an easy way to browse the tags of the current file and get an overview of its structure.
-"  * tasklist: lists of every todo in the code
-"  * tomtom/tlib_vim: (snipmate requirement)
-"  * unite-outline: used by unite to display outline
-"  * unite.vim: search and display information from arbitrary sources like files, buffers, ..
-"  * MarcWeber/vim-addon-mw-utils: (snipmate requirement)
-"  * vim-gitgutter: show git diff in the gutter (sign column)
-"  * vim-indent-guides: adds indentation guides
-"  * vim-markdown: syntax highlighting for markdown
-"  * vim-pep8-text-width: wraps text at 79 char for code and 72 for comments (PEP8 specifications)
-"  * vimproc-vim: used by unite to speed up search
-"  * vim-repeat: enhance vim's last command repetition with '.'
-"  * vim-yaml: indentation settings for yaml files
-"  * YouCompleteMe: autocompletion + jump to definition (jedi alternative)
-
-" Disabled
-"  * jedi-vim: does everything :) --> too slow
-"  * pydoc: shows the documentation of the current command
-"  * python-mode: apparently not compatible with jedi-vim
-"  * vim-easyclip: enhance copy and paste
-"  * vim-latex: adds autocomplete and some other features for latex
-
 " Also, the indent directory contains a script to automatically indent python
 
 " Notes
@@ -88,49 +53,47 @@
 " * To add or remove plugins, edit .vimrc, (re)open vim, run :PluginInstall or
 "   :PluginClean. See ':h vundle' for more details or Vundle wiki for FAQ
 
-" Vundle + plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
+" """"""""""""""""""""""" Vundle setup """"""""""""""""""""""""""""""""""""""""
+set nocompatible                                                 " be iMproved, required
+filetype off                                                     " required
 nnoremap gm m
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin() " you can also pass a path where Vundle should install plugins
+call vundle#begin()                                              " optional: specify path where Vundle should install plugins
 
-" The installed bundles 
-Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle (required!)  
-
-Plugin 'mileszs/ack.vim'
-Plugin 'hhatto/autopep8'
-Plugin 'sjl/gundo.vim', {'name': 'gundo'}
-" Plugin 'davidhalter/jedi-vim'
+Plugin 'gmarik/Vundle.vim'                                       " Let Vundle manage Vundle (required!)
+Plugin 'mileszs/ack.vim'                                         " Search recursively with :Ack [options] {pattern} [{directories}]
+Plugin 'hhatto/autopep8'                                         " Format code according to PEP8 specifications
+Plugin 'sjl/gundo.vim', {'name': 'gundo'}                        " Diff with last saves
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'Shougo/neoyank.vim'
-Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}
-" Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}
-Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " fork of garbas/vim-snipmate without annoying . snippet
+Plugin 'Shougo/neoyank.vim'                                      " Used by unite to show yank history
+Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}    " Inserts templates for the documentation
+Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " Fork of garbas/vim-snipmate without annoying . snippet
 Plugin 'sirver/UltiSnips'
-Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'}
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}
+Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'} " Solarized theme for vim
+Plugin 'ervandew/supertab'                                       " Provides autocomplete with TAB
+Plugin 'scrooloose/syntastic'                                    " Syntax check (a syntax checker has to be installed)
+Plugin 'majutsushi/tagbar'                                       " Overview of the tags of the current file
+Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}          " Lists of every todo in the code
+Plugin 'h1mesuke/unite-outline'                                  " Used by unite to display outline
+Plugin 'Shougo/unite.vim'                                        " Search and display information from sources like files, buffers, ..
+Plugin 'airblade/vim-gitgutter'                                  " Show git diff in the gutter (sign column)
+Plugin 'nathanaelkane/vim-indent-guides'                         " Adds indentation guides
+Plugin 'plasticboy/vim-markdown'                                 " Syntax highlighting for markdown
+Plugin 'jimf/vim-pep8-text-width'                                " Wraps text at 79 char for code and 72 for comments
+Plugin 'Shougo/vimproc.vim'                                      " Used by unite to speed up search
+Plugin 'tpope/vim-repeat'                                        " Enhance vim's last command repetition with '.'
+Plugin 'avakhov/vim-yaml'                                        " Indentation settings for yaml files
+Plugin 'Valloric/YouCompleteMe'                                  " Autocompletion + jump to definition (jedi alternative)
+
+" Plugin 'kien/ctrlp.vim'                                        " CtrlP fuzzy-finder.
+" Plugin 'davidhalter/jedi-vim'                                  " Does everything. But too slow
+" Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}             " Switched to ultisnips - insert snippets with <snippet_name> + <Tab>
 " Plugin 'tomtom/tlib_vim'  " (snipmate requirement)
-Plugin 'h1mesuke/unite-outline'
-Plugin 'Shougo/unite.vim'
 " Plugin 'MarcWeber/vim-addon-mw-utils'  " (snipmate requirement)
-" Plugin 'svermeulen/vim-easyclip'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'vim-latex/vim-latex'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'jimf/vim-pep8-text-width'
-Plugin 'Shougo/vimproc.vim'  " used by unite
-Plugin 'tpope/vim-repeat'
-Plugin 'avakhov/vim-yaml'
-Plugin 'Valloric/YouCompleteMe'
-" Plugin 'fs111/pydoc.vim', {'name': 'pydoc'}
-" Plugin 'klen/python-mode'  " Apparently not compatible with jedi-vim
+" Plugin 'svermeulen/vim-easyclip'                               " No clear advantage (enhance copy and paste)
+" Plugin 'vim-latex/vim-latex'                                   " Adds autocomplete and some other features for latex
+" Plugin 'fs111/pydoc.vim', {'name': 'pydoc'}                    " shows the documentation of the current command
+" Plugin 'klen/python-mode'                                      " Not compatible with jedi-vim
 
 " TODO: C++ 
 " http://www.zwiener.org/vimautocomplete.html
@@ -139,109 +102,70 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=700 
-
-" Set to auto read when a file is changed from the outside
-set autoread 
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent 
+" """"""""""""""""""""""" General vim setup """""""""""""""""""""""""""""""""""
+set history=700                " Lines of history to remember
+set autoread                   " Check if file is modified externally
+set backspace=eol,start,indent " Configure backspace so it acts as it should
 set whichwrap+=<,>,h,l
-
-" Don't redraw while executing macros (good performance config)
-set lazyredraw 
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8 
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac 
+set lazyredraw                 " Don't redraw during macros (for performance)
+set encoding=utf8              " Use utf8/en_US
+set ffs=unix,dos,mac           " Use Unix as the standard file type
 let mapleader=","
+set tm=500                     " Timeout after leader key
+map <C-Z> <Nop>                " Prevent ctrl-z from closing vim 
+set pastetoggle=<F2>           " F2 = paste mode toggle
+set splitbelow                 " Open new split panes to right and bottom
+set splitright                 " Open new split panes to right and bottom
+set mouse=a                    " Enable mouse scrolling
+"set ttymouse=xterm
 
-" Timeout after leader key
-set tm=500 
-
-" Prevent ctrl-z from closing vim 
-map <C-Z> <Nop> 
-
-" Set F2 to paste mode toggle
-set pastetoggle=<F2>
-
-"Open new split panes to right and bottom
-set splitbelow
-set splitright
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Scroll to keep the cursor n lines above/under the end/top of the page
-set so=7 
-
-" Turn on the WiLd menu (autocomplete :commands)
-set wildmenu 
+" """"""""""""""""""""""" Vim user interface """"""""""""""""""""""""""""""""""
+set so=7                        " Autoscroll to keep cursor n lines from top/bottom of page
+set wildmenu                    " Turn on the WiLd menu (autocomplete :commands)
 set wildmode=longest:list,full
-
-" Show matching brackets
-set showmatch 
-
-" Show incomplete commands
-set showcmd 
-
-" How many tenths of a second to blink when matching brackets
-set mat=3 
-
+set showmatch                   " Show matching brackets
+set mat=3                       " Tenths of a second to blink when matching brackets
+set showcmd                     " Show incomplete commands
+set ruler                       " Always show current position
+set rulerformat=%l,%c%V%=%P     " Show line and percentage (default)
+set cmdheight=1                 " Height of the command bar
+ 
 " Enable syntax highlighting for .bash_aliases
 au BufNewFile,BufRead .bashrc*,bashrc,bash.bashrc,.bash_aliases,.bash_profile*,.bash_logout*,*.bash,*.ebuild set filetype=sh
 au BufNewFile,BufRead *.txt set filetype=rest
+" Enable spellcheck for tex and markdown
+autocmd FileType latex,tex,md,markdown setlocal spell
+
 "call SetFileTypeSH("bash")
 "set laststatus=2 --> status is very useful, but wastes one line
 "set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L" " Show filename in status bar
 " set hid " A buffer becomes hidden when it is abandoned
 " set magic " For regular expressions turn magic on
 
-" Always show current position
-set ruler 
 
-" show line and percentage (default)
-set rulerformat=%l,%c%V%=%P 
+" """"""""""""""""""""""" Vim search setup """"""""""""""""""""""""""""""""""""
+set hlsearch        " Highlight matches
+set incsearch       " Makes search act like search in modern browsers
+set ignorecase      " Set case insensitive search
+set smartcase       " Case sensitive only if uppercase target
 
-" Height of the command bar
-set cmdheight=1 
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Search options
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Highlight results of search
-set hlsearch 
-
-" Makes search act like search in modern browsers
-set incsearch 
-
-" Do case insensitive matching
-set ignorecase 
-
-" Search case sensitive only if you type uppercase
-set smartcase 
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Errors and warnings notifications
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" """"""""""""""""""""""" Errors and warnings notifications """""""""""""""""""
 " Syntax highlight and colors
-syntax on " Enable syntax highlighting
-filetype on " Try to detect filetypes
-filetype plugin indent on " Turn on filetype-specific indenting modes and plugins
-let python_highlight_all=1 " Extra highlights
+syntax on                           " Enable syntax highlighting
+filetype on                         " Try to detect filetypes
+filetype plugin indent on           " Turn on filetype-specific indenting modes and plugins
+let python_highlight_all=1          " Extra highlights
 " Colors
+set t_Co=256                        " Force use 256 colors even if terminal doesn't
+colo solarized                      " Use the solarized color scheme
+set background=dark                 " Use the dark background scheme
+hi Search ctermfg=237 ctermbg=178   " Colors for search
+set noerrorbells                    " No annoying sound on errors
+set novisualbell
+set t_vb=
+set tm=500
 " set term=xterm
-set t_Co=256 " Force VIM to use 256 colors even if terminal doesn't
-colo solarized " use the solarized color scheme
-set background=dark " use the dark background scheme
+ 
 " VERSION 1
 " Highlight text that is longer than 80 characters
 " augroup vimrc_autocmds
@@ -266,40 +190,25 @@ augroup highlight_toolong2
   au FileType,BufEnter * call HighlightTooLongLines()
 augroup END
 
-" Error and warning highlight colors 
-hi Search ctermfg=237 ctermbg=178 " Colors for search
+" """"""""""""""""""""""" Text, tab and indentation """""""""""""""""""""""""""
+set autoindent                  " New line inherits indentation from the previous line
+set nosmartindent               " Avoid losing indentation when inserting '#'
+set cindent                     " Should be smarter than smartindent. Autoindents after brackets, ..
+set tabstop=4                   " 1 Tab = 4 spaces
+set softtabstop=4               " Number of spaces for tab in insert mode
+set shiftwidth=4                " 1 Tab = 4 spaces
+set smarttab                    " Interpret Tab depending on where is the cursor
+set expandtab                   " Substitute tabs with spaces
+set ai                          " Auto indent: copy indentation from previous line
+set wrap                        " Wrap lines
+" set textwidth=80              " Set line break at 80 characters --> vim-pep8-text-width
+" set formatoptions+=t          " Enable automatic text wrapping --> vim-pep8-text-width
+" set si                        " Smart indent: automatically insert one extra level in some cases
+" set number                    " Show line numbers
+" set lbr                       " Set line break
+" set listchars=tab:\|\<Space>  " how to highlight tabs
 
-" *** No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set autoindent " New line inherits indentation from the previous line
-set nosmartindent " Avoid losing indentation when inserting '#'
-set cindent " Should be smarter than smartindent. Autoindents after brackets, ..
-set tabstop=4 " 1 Tab = 4 spaces
-set softtabstop=4 " Number of spaces for tab in insert mode
-set shiftwidth=4 " 1 Tab = 4 spaces
-set smarttab " interpret Tab depending on where is the cursor
-set expandtab " Substitute tabs with spaces
-set ai " Auto indent: copy indentation from previous line
-set wrap " Wrap lines
-" set textwidth=80 " Set line break at 80 characters --> vim-pep8-text-width
-" set formatoptions+=t " Enable automatic text wrapping --> vim-pep8-text-width
-" set si " Smart indent: automatically insert one extra level in some cases
-" set listchars=tab:\|\<Space> " how to highlight tabs
-" set number " Show line numbers
-" set lbr " Set line break
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" """"""""""""""""""""""" Files, backups and undo """""""""""""""""""""""""""""
 set nobackup 
 set nowb
 set noswapfile
@@ -312,10 +221,8 @@ set noswapfile
 "  n... :  where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Personalized key bindings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Redefine W and Q because c'mon, they are not even a command!
+" """"""""""""""""""""""" Personalized key bindings """""""""""""""""""""""""""
+" Fix for laggy shift finger
 command WQ wq
 command Wq wq
 command W w
@@ -325,24 +232,14 @@ nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
-" Map jj to <Esc>
-imap jj <Esc>
-" Map ctrl-W to next error
-nmap <C-W><C-W> :lnext<CR>
-" When in normal mode, press Space followed by the character that you want to insert.
-:nnoremap <Space> i_<Esc>r
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-" Activate spell check
-noremap <F8> :set spell spelllang=en_us <CR>
-" Auto spell check for tex and markdown
-autocmd FileType latex,tex,md,markdown setlocal spell
+imap jj <Esc>                                   " Map jj to <Esc>
+nmap <C-W><C-W> :lnext<CR>                      " Map ctrl-W to next error
+:nnoremap <Space> i_<Esc>r                      " Insert single char in normal mode with space + char
+map <silent> <leader><cr> :noh<cr>              " <leader><cr> disables highlight
+noremap <F8> :set spell spelllang=en_us <CR>    " Activate spell check
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Hacks
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Strip trailing whitespace off all lines every time you save a .py or .pyx file
+" """"""""""""""""""""""" Hacks """""""""""""""""""""""""""""""""""""""""""""""
+" **** Strip trailing whitespace off all lines every time you save a .py or .pyx file
 function! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -351,7 +248,7 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre *.py,*.pyx,*.tex :call <SID>StripTrailingWhitespaces()
 
-" Delete trailing white space on save
+" **** Delete trailing white space on save
 func! DeleteTrailingWS()
   exe "normal gmz"
   %s/\s\+$//ge
@@ -360,15 +257,13 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
-" Jump to the last position when reopening a file (NB: .viminfo should be owned by your user)
+" **** Jump to the last position when reopening a file (NB: .viminfo should be owned by your user)
 " Note: could also use Plugin 'farmergreg/vim-lastplace'
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-" Vim scrolling 
-set mouse=a
-"set ttymouse=xterm
-" Code completition in virtual environments
+ 
+" **** Code completition in virtual environments
 py << EOF
 import os.path
 import sys
@@ -381,265 +276,7 @@ if 'VIRTUAL_ENV' in os.environ:
     #execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-
-
-
-
-
-
-
-" => Autopep8 (autofix pep8 errors)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <F6> :!autopep8 --in-place --aggressive --aggressive %
-
-
-" => Easyclip (Paste with buffer, substitute, ..)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:EasyClipUseCutDefaults=0  " disable default bindings (do not override m)
-" nmap d <Plug>MoveMotionPlug  " add the text cut with d and dd to the yank buffer
-" xmap d <Plug>MoveMotionXPlug
-" nmap dd <Plug>MoveMotionLinePlug
-" let g:EasyClipEnableBlackHoleRedirect=0  " keep d behaviour intact
-"let g:EasyClipUseSubstituteDefaults=1
-
-" => Gundo (navigate through undo list)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F4> :GundoToggle<CR>
-
-
-" => Jedi-vim 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" (refer to https://github.com/davidhalter/jedi-vim#faq)
-autocmd FileType python setlocal completeopt-=preview  "Disable docstring window popup
-let g:jedi#completions_command='<C-Space>'  "(def:<C-N>)
-let g:jedi#popup_on_dot = 0  "(def:1)
-let g:jedi#show_call_signatures = 2  " 0=disabled, 1=popup in the buffer (fucks up undos), 2=popup in command line (def: 1)
-let g:jedi#smart_auto_mappings=0  "fancy things like automatically add 'import' after from something (def:1)
-" let g:jedi#auto_close_doc  "autoclose doc when insert mode is left(def:1)
-" let g:jedi#documentation_command  "(def:K)
-" let g:jedi#completions_enabled  "(def:1)
-" let g:jedi#force_py_version  "Force python2 or python3 (def:auto)
-" let g:jedi#goto_command  "try to find the original definition of the command under the cursor (def:<leader>d)
-" let g:jedi#max_doc_height  "(def:20)
-" let g:jedi#popup_select_first = 0  "automatically select the first entry of the completion menu
-" let g:jedi#rename_command  "deletes the word currently under the cursor and puts Vim in insert mode. Upon leaving insert mode, jedi-vim then renames all occurences of the old variable (def:<leader>r)
-" let g:jedi#usages_command  "list of all names which point to the definition of the name under the cursor (def:<leader>n) 
-" let g:jedi#use_tabs_not_buffers  "use tabs to go to a definition, etc (def: 0)
-" let g:jedi#use_splits_not_buffers  "use a split window instead of a buffer (def: 1, other: left, right, top, bottom, winwidth)
-
-" => LatexBox
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:LatexBox_latexmk_async=1  --> requires clientserver vim capability
-let g:LatexBox_latexmk_preview_continuously=1
-
-" => Pydocstring 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pydocstring_templates_dir = $HOME."/.vim/pydocstring-templates/"
-
-
-" => Supertab
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" au FileType python set omnifunc=pythoncomplete#Complete " This breaks Jedi
-let g:SuperTabDefaultCompletionType = "context"
-" set completeopt=menuone,longest,preview  # kyle
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>" " always use omni completion (i.e. Jedi)
-
-
-" => Syntastic (Syntax check)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" You can run checkers explicitly by calling :SyntasticCheck <checker
-let g:syntastic_python_checkers = ['flake8'] "use one of the following checkers: 
-                                             " flake8, pyflakes, pylint, python (native checker)
-let g:syntastic_enable_highlighting = 1  "highlight errors and warnings
-let g:syntastic_style_error_symbol = ">>" "error symbol
-let g:syntastic_warning_symbol = ">>" "warning symbol
-let g:syntastic_check_on_open = 1
-let g:syntastic_always_populate_loc_list = 1 "populate error list so that we can cycle through them
-"let g:syntastic_auto_loc_list=1  "open list of errors
-let g:syntastic_loc_list_height = 5  "list length
-let g:syntastic_auto_jump = 0  "do not jump to errors when detected
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'  "show number of errors and warnings
-"set the colour of errors and warnings 
-hi SpellBad ctermfg=235 ctermbg=166                       " errors line 
-" hi error ctermfg=237 ctermbg=178                        " errors sign
-hi SyntasticErrorSign ctermfg=166 cterm=bold              " style errors sign 
-" hi error ctermfg=darkblue ctermbg=yellow                " errors sign
-" hi SyntasticErrorSign ctermfg=darkblue ctermbg=yellow   " style errors sign
-
-
-" => Tasklist 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>tl <Plug>TaskList
-
-" => Tagbar
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>tt :TagbarToggle<CR>
-
-" => Unite
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:unite_data_directory = '/tmp/vim/unite/'
-let g:unite_abbr_highlight = 'Keyword'
-nnoremap <C-p> :Unite file_rec/async<cr>  " File search
-nnoremap <leader>s :Unite grep:.<cr>  " Content search
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <silent><leader>f :<C-u>Unite -buffer-name=files   file<cr>
-nnoremap <silent><leader>r :<C-u>Unite -buffer-name=files   file_rec/async:!<cr>
-nnoremap <silent><leader>m :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <silent><leader>o :<C-u>Unite -buffer-name=outline outline<cr>
-nnoremap <silent><leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
-nnoremap <silent> <leader>b :<C-u>Unite buffer bookmark<CR>
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-    " Play nice with supertab
-    let b:SuperTabDisabled=1
-    " Enable navigation with control-j and control-k in insert mode
-    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
-
-
-" => Vim gutter
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F9> :GitGutterToggle<CR>
-
-
-" => Vim indent guides
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" toggled with <Leader> ig
-let g:indent_guides_auto_colors = 0 " set colors manually
-hi IndentGuidesOdd  ctermbg=darkgrey
-hi IndentGuidesEven ctermbg=darkgrey
-let g:indent_guides_start_level=2 " start showing indentation from the 2 level
-let g:indent_guides_guide_size=1 " dimension of the guide
-let g:indent_guides_enable_on_vim_startup=0 "autostart
-
-" => Vim markdown
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vim_markdown_folding_disabled = 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-" DISABLED
-
-
-
-" => Pydoc 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Open docs with <leader>pw or <leader>pW
-" let g:pydoc_highlight = 0 " Don't highlight word when open word definition 
-
-
-" => Python-mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Documentation
-"let g:pymode_doc = 1
-"let g:pymode_doc_key = 'K'
-"let g:pymode_doc = 0
-" set completeopt=menu " Prevent the docs window from automatically open
-
-"Linting
-"let g:pymode_lint = 0  " Disable linting: use syntastic
-""let g:pymode_lint_checker = "pyflakes,pep8,pep257"
-""let g:pymode_lint_write = 1 " Auto check on save (if modified)
-""let g:pymode_lint_unmodified = 0 " Check even if unmodified
-""let g:pymode_lint_signs = 1 " Place error signs
-""let g:pymode_lint_ignore = "C901"
-""let g:pymode_lint_cwindow = 1 "Auto open cwindow (quickfix) if any errors have been found
-"
-"" Automatically fix PEP8 errors in the current buffer:
-"noremap <F8> :PymodeLintAuto<CR>
-"
-"" Support virtualenv detection
-"let g:pymode_virtualenv = 1
-"
-"" Enable breakpoints plugin
-"let g:pymode_breakpoint = 1
-"let g:pymode_breakpoint_key = '<leader>b'
-"let g:pymode_breakpoint_cmd = 'from IPython import embed; embed()'
-"
-"" Completion
-"let g:pymode_rope_completion = 1 " Turn on code completion
-"let g:pymode_rope_complete_on_dot = 0 " Turn off autocomplete on dot
-"let g:pymode_rope_completion_bind = '<C-Space>' " Ctrl-space to complete
-"let g:pymode_rope_autoimport = 1 " Autocomplete objects that have not been imported
-"
-"" Syntax highlighting
-"let g:pymode_syntax = 1
-"let g:pymode_syntax_all = 1
-"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-"let g:pymode_syntax_space_errors = g:pymode_syntax_all
-"
-"" Don't autofold code
-"let g:pymode_folding = 0
-"
-"" Disable rope (refactoring)
-"let g:pymode_rope = 0 
-                                                                                
-
-" => Ropevim 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Go to definition and rename all occurrencies
-"map <leader>j :RopeGotoDefinition<CR>
-"map <leader>r :RopeRename<CR>
-
-
-" => Ulti-snips 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" " Map to space
-" let g:UltiSnipsExpandTrigger="<nop>"
-" inoremap <expr> <space> pumvisible() ? "<space>=UltiSnips#ExpandSnippetOrJump()<space>" : "\<space>"
-let g:UltiSnipsExpandTrigger="<c-space>"
-let g:UltiSnipsListSnippets="<c-tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" => Vim latex
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Recommended in the documentation
-" set grepprg=grep\ -nH\ $*
-" filetype indent on
-" let g:tex_flavor='latex'
-" " TIP: if you write your \label's as \label{fig:something}, then if you
-" " " type in \ref{fig: and press <C-n> you will automatically cycle through
-" " " all the figure labels. Very useful!
-" set iskeyword+=:
-" let g:Imap_UsePlaceHolders=0 " disable placeholders
-" let g:Tex_AutoFolding=0  " disable automatic folding. Can still fold with
-
-
-" => YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Remap ycm keys to iterate over list, as by default are mapped to tab and
-"" s-tab, which breaks ultisnips
-"let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-"let g:ycm_autoclose_preview_window_after_completion=1
-"nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"nnoremap <leader>d :YcmCompleter GoTo<CR>
-nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>s :YcmCompleter GoToDeclaration<CR>
-let g:ycm_seed_identifiers_with_syntax = 0  " preseed with language syntax keywords
-
-
-
-
-
-
-" AUTORELOAD BUFFERS WHEN FILES ARE CHANGED EXTERNALLY
+" **** Autoreload buffers when files are changed externally
 " If you are using a console version of Vim, or dealing
 " with a file that changes externally (e.g. a web server log)
 " then Vim does not always check to see if the file has been changed.
@@ -681,6 +318,7 @@ let g:ycm_seed_identifiers_with_syntax = 0  " preseed with language syntax keywo
 command! -bang WatchForChanges                  :call WatchForChanges(@%,  {'toggle': 1, 'autoread': <bang>0})
 command! -bang WatchForChangesWhileInThisBuffer :call WatchForChanges(@%,  {'toggle': 1, 'autoread': <bang>0, 'while_in_this_buffer_only': 1})
 command! -bang WatchForChangesAllFile           :call WatchForChanges('*', {'toggle': 1, 'autoread': <bang>0})
+
 " WatchForChanges function
 "
 " This is used by the WatchForChanges* commands, but it can also be
@@ -805,3 +443,211 @@ endfunction
 " Options
 let autoreadargs={'autoread':1}
 execute WatchForChanges("*",autoreadargs)
+
+
+" """"""""""""""""""""""" Plugin settings """""""""""""""""""""""""""""""""""""
+" **** Autopep8 (autofix pep8 errors)
+noremap <F6> :!autopep8 --in-place --aggressive --aggressive %
+
+" **** Easyclip (Paste with buffer, substitute, ..)
+" let g:EasyClipUseCutDefaults=0  " disable default bindings (do not override m)
+" nmap d <Plug>MoveMotionPlug  " add the text cut with d and dd to the yank buffer
+" xmap d <Plug>MoveMotionXPlug
+" nmap dd <Plug>MoveMotionLinePlug
+" let g:EasyClipEnableBlackHoleRedirect=0  " keep d behaviour intact
+"let g:EasyClipUseSubstituteDefaults=1
+
+" **** Gundo (navigate through undo list)
+nnoremap <F4> :GundoToggle<CR>
+
+" **** Jedi-vim 
+" (refer to https://github.com/davidhalter/jedi-vim#faq)
+autocmd FileType python setlocal completeopt-=preview  "Disable docstring window popup
+let g:jedi#completions_command='<C-Space>'  "(def:<C-N>)
+let g:jedi#popup_on_dot = 0  "(def:1)
+let g:jedi#show_call_signatures = 2  " 0=disabled, 1=popup in the buffer (fucks up undos), 2=popup in command line (def: 1)
+let g:jedi#smart_auto_mappings=0  "fancy things like automatically add 'import' after from something (def:1)
+" let g:jedi#auto_close_doc  "autoclose doc when insert mode is left(def:1)
+" let g:jedi#documentation_command  "(def:K)
+" let g:jedi#completions_enabled  "(def:1)
+" let g:jedi#force_py_version  "Force python2 or python3 (def:auto)
+" let g:jedi#goto_command  "try to find the original definition of the command under the cursor (def:<leader>d)
+" let g:jedi#max_doc_height  "(def:20)
+" let g:jedi#popup_select_first = 0  "automatically select the first entry of the completion menu
+" let g:jedi#rename_command  "deletes the word currently under the cursor and puts Vim in insert mode. Upon leaving insert mode, jedi-vim then renames all occurences of the old variable (def:<leader>r)
+" let g:jedi#usages_command  "list of all names which point to the definition of the name under the cursor (def:<leader>n) 
+" let g:jedi#use_tabs_not_buffers  "use tabs to go to a definition, etc (def: 0)
+" let g:jedi#use_splits_not_buffers  "use a split window instead of a buffer (def: 1, other: left, right, top, bottom, winwidth)
+
+" **** LatexBox
+" let g:LatexBox_latexmk_async=1  --> requires clientserver vim capability
+let g:LatexBox_latexmk_preview_continuously=1
+
+" **** Pydocstring
+let g:pydocstring_templates_dir = $HOME."/.vim/pydocstring-templates/"
+
+" **** Supertab
+" au FileType python set omnifunc=pythoncomplete#Complete " This breaks Jedi
+let g:SuperTabDefaultCompletionType = "context"
+" set completeopt=menuone,longest,preview  # kyle
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>" " always use omni completion (i.e. Jedi)
+
+" **** Syntastic (Syntax check)
+" You can run checkers explicitly by calling :SyntasticCheck <checker
+let g:syntastic_python_checkers = ['flake8'] "use one of the following checkers: 
+                                             " flake8, pyflakes, pylint, python (native checker)
+let g:syntastic_enable_highlighting = 1  "highlight errors and warnings
+let g:syntastic_style_error_symbol = ">>" "error symbol
+let g:syntastic_warning_symbol = ">>" "warning symbol
+let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 1 "populate error list so that we can cycle through them
+"let g:syntastic_auto_loc_list=1  "open list of errors
+let g:syntastic_loc_list_height = 5  "list length
+let g:syntastic_auto_jump = 0  "do not jump to errors when detected
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'  "show number of errors and warnings
+"set the colour of errors and warnings 
+hi SpellBad ctermfg=235 ctermbg=166                       " errors line 
+" hi error ctermfg=237 ctermbg=178                        " errors sign
+hi SyntasticErrorSign ctermfg=166 cterm=bold              " style errors sign 
+" hi error ctermfg=darkblue ctermbg=yellow                " errors sign
+" hi SyntasticErrorSign ctermfg=darkblue ctermbg=yellow   " style errors sign
+
+" **** Tasklist 
+map <leader>tl <Plug>TaskList
+
+" **** Tagbar
+nmap <leader>tt :TagbarToggle<CR>
+
+" **** Ulti-snips 
+" Trigger configuration. Do not use <tab> if you use 
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-space>"
+let g:UltiSnipsListSnippets="<c-tab>"
+
+" To map to space
+" let g:UltiSnipsExpandTrigger="<nop>"
+" inoremap <expr> <space> pumvisible() ? "<space>=UltiSnips#ExpandSnippetOrJump()<space>" : "\<space>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
+" **** Unite
+let g:unite_data_directory = '/tmp/vim/unite/'
+let g:unite_abbr_highlight = 'Keyword'
+nnoremap <C-p> :Unite file_rec/async<cr>  " File search
+nnoremap <leader>s :Unite grep:.<cr>  " Content search
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <silent><leader>f :<C-u>Unite -buffer-name=files   file<cr>
+nnoremap <silent><leader>r :<C-u>Unite -buffer-name=files   file_rec/async:!<cr>
+nnoremap <silent><leader>m :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <silent><leader>o :<C-u>Unite -buffer-name=outline outline<cr>
+nnoremap <silent><leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
+nnoremap <silent> <leader>b :<C-u>Unite buffer bookmark<CR>
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+    " Play nice with supertab
+    let b:SuperTabDisabled=1
+    " Enable navigation with control-j and control-k in insert mode
+    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
+
+" **** Vim gutter
+map <F9> :GitGutterToggle<CR>
+
+" **** Vim indent guides
+" toggled with <Leader> ig
+let g:indent_guides_auto_colors = 0 " set colors manually
+hi IndentGuidesOdd  ctermbg=darkgrey
+hi IndentGuidesEven ctermbg=darkgrey
+let g:indent_guides_start_level=2 " start showing indentation from the 2 level
+let g:indent_guides_guide_size=1 " dimension of the guide
+let g:indent_guides_enable_on_vim_startup=0 "autostart
+
+" **** Vim markdown
+let g:vim_markdown_folding_disabled = 1
+
+" **** YouCompleteMe
+"" Remap ycm keys to iterate over list, as by default are mapped to tab and
+"" s-tab, which breaks ultisnips
+"let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+"let g:ycm_autoclose_preview_window_after_completion=1
+"nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nnoremap <leader>d :YcmCompleter GoTo<CR>
+nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>s :YcmCompleter GoToDeclaration<CR>
+let g:ycm_seed_identifiers_with_syntax = 0  " preseed with language syntax keywords
+
+" """"""""""""""""""""""" Disabled plugin settings """"""""""""""""""""""""""""
+
+" **** Pydoc 
+" Open docs with <leader>pw or <leader>pW
+" let g:pydoc_highlight = 0 " Don't highlight word when open word definition 
+
+" **** Python-mode
+" Documentation
+"let g:pymode_doc = 1
+"let g:pymode_doc_key = 'K'
+"let g:pymode_doc = 0
+" set completeopt=menu " Prevent the docs window from automatically open
+
+"Linting
+"let g:pymode_lint = 0  " Disable linting: use syntastic
+""let g:pymode_lint_checker = "pyflakes,pep8,pep257"
+""let g:pymode_lint_write = 1 " Auto check on save (if modified)
+""let g:pymode_lint_unmodified = 0 " Check even if unmodified
+""let g:pymode_lint_signs = 1 " Place error signs
+""let g:pymode_lint_ignore = "C901"
+""let g:pymode_lint_cwindow = 1 "Auto open cwindow (quickfix) if any errors have been found
+"
+"" Automatically fix PEP8 errors in the current buffer:
+"noremap <F8> :PymodeLintAuto<CR>
+"
+"" Support virtualenv detection
+"let g:pymode_virtualenv = 1
+"
+"" Enable breakpoints plugin
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_key = '<leader>b'
+"let g:pymode_breakpoint_cmd = 'from IPython import embed; embed()'
+"
+"" Completion
+"let g:pymode_rope_completion = 1 " Turn on code completion
+"let g:pymode_rope_complete_on_dot = 0 " Turn off autocomplete on dot
+"let g:pymode_rope_completion_bind = '<C-Space>' " Ctrl-space to complete
+"let g:pymode_rope_autoimport = 1 " Autocomplete objects that have not been imported
+"
+"" Syntax highlighting
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"
+"" Don't autofold code
+"let g:pymode_folding = 0
+"
+"" Disable rope (refactoring)
+"let g:pymode_rope = 0 
+                                                                                
+" **** Ropevim 
+" Go to definition and rename all occurrencies
+"map <leader>j :RopeGotoDefinition<CR>
+"map <leader>r :RopeRename<CR>
+
+" **** Vim latex
+" Recommended in the documentation
+" set grepprg=grep\ -nH\ $*
+" filetype indent on
+" let g:tex_flavor='latex'
+" " TIP: if you write your \label's as \label{fig:something}, then if you
+" " " type in \ref{fig: and press <C-n> you will automatically cycle through
+" " " all the figure labels. Very useful!
+" set iskeyword+=:
+" let g:Imap_UsePlaceHolders=0 " disable placeholders
+" let g:Tex_AutoFolding=0  " disable automatic folding. Can still fold with
