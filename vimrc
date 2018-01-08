@@ -112,7 +112,7 @@ set encoding=utf8              " Use utf8/en_US
 set ffs=unix,dos,mac           " Use Unix as the standard file type
 let mapleader=","
 set tm=500                     " Timeout after leader key
-map <C-Z> <Nop>                " Prevent ctrl-z from closing vim 
+map <C-Z> <Nop>|               " Prevent ctrl-z from closing vim
 set pastetoggle=<F2>           " F2 = paste mode toggle
 set splitbelow                 " Open new split panes to right and bottom
 set splitright                 " Open new split panes to right and bottom
@@ -232,11 +232,11 @@ nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
-imap jj <Esc>                                   " Map jj to <Esc>
-nmap <C-W><C-W> :lnext<CR>                      " Map ctrl-W to next error
-:nnoremap <Space> i_<Esc>r                      " Insert single char in normal mode with space + char
-map <silent> <leader><cr> :noh<cr>              " <leader><cr> disables highlight
-noremap <F8> :set spell spelllang=en_us <CR>    " Activate spell check
+imap jj <Esc>|                                  " Map jj to <Esc>
+nmap <C-W><C-W> :lnext<CR>|                     " Map ctrl-W to next error
+:nnoremap <Space> i_<Esc>r|                     " Insert single char in normal mode with space + char
+map <silent> <leader><cr> :noh<cr>|             " <leader><cr> disables highlight
+noremap <F8> :set spell spelllang=en_us <CR>|   " Activate spell check
 
 " """"""""""""""""""""""" Hacks """""""""""""""""""""""""""""""""""""""""""""""
 " **** Strip trailing whitespace off all lines every time you save a .py or .pyx file
@@ -552,8 +552,8 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "
 " **** Unite
 let g:unite_data_directory = '/tmp/vim/unite/'
 let g:unite_abbr_highlight = 'Keyword'
-nnoremap <C-p> :Unite file_rec/async<cr>  " File search
-nnoremap <leader>s :Unite grep:.<cr>  " Content search
+nnoremap <C-p> :Unite file_rec/async<cr>|                       " File search
+nnoremap <leader>s :Unite grep:.<cr>|                           " Content search
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <silent><leader>f :<C-u>Unite -buffer-name=files   file<cr>
