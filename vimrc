@@ -227,6 +227,9 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
+" Allow to use :w!! to write to a file using sudo if you forgot to 
+" 'sudo vim file' (it will prompt for sudo password)
+cmap w!! %!sudo tee > /dev/null %
 " Move between windows with alt+arrows
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
