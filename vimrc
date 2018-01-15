@@ -65,26 +65,30 @@ Plugin 'mileszs/ack.vim'                                         " Search recurs
 Plugin 'hhatto/autopep8'                                         " Format code according to PEP8 specifications
 Plugin 'sjl/gundo.vim', {'name': 'gundo'}                        " Diff with last saves
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'Valloric/MatchTagAlways'                                 " Always highlights the enclosing html/xml tags
 Plugin 'Shougo/neoyank.vim'                                      " Used by unite to show yank history
-Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}    " Inserts templates for the documentation
-Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " Fork of garbas/vim-snipmate without annoying . snippet
-Plugin 'sirver/UltiSnips'
-Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'} " Solarized theme for vim
+Plugin 'scrooloose/nerdcommenter'                                " Formatting of comments
 Plugin 'ervandew/supertab'                                       " Provides autocomplete with TAB
 Plugin 'scrooloose/syntastic'                                    " Syntax check (a syntax checker has to be installed)
 Plugin 'majutsushi/tagbar'                                       " Overview of the tags of the current file
-Plugin 'vim-scripts/TaskList.vim', {'name': 'tasklist'}          " Lists of every todo in the code
-Plugin 'h1mesuke/unite-outline'                                  " Used by unite to display outline
+Plugin 'vim-scripts/TaskList.vim'                                " Lists of every todo in the code
+Plugin 'sirver/UltiSnips'
 Plugin 'Shougo/unite.vim'                                        " Search and display information from sources like files, buffers, ..
+Plugin 'h1mesuke/unite-outline'                                  " Used by unite to display outline
+Plugin 'Shougo/vimproc.vim'                                      " Used by unite to speed up search
+Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'} " Solarized theme for vim
 Plugin 'airblade/vim-gitgutter'                                  " Show git diff in the gutter (sign column)
 Plugin 'nathanaelkane/vim-indent-guides'                         " Adds indentation guides
 Plugin 'plasticboy/vim-markdown'                                 " Syntax highlighting for markdown
 Plugin 'jimf/vim-pep8-text-width'                                " Wraps text at 79 char for code and 72 for comments
-Plugin 'Shougo/vimproc.vim'                                      " Used by unite to speed up search
+Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}    " Inserts templates for the documentation
 Plugin 'tpope/vim-repeat'                                        " Enhance vim's last command repetition with '.'
+Plugin 'tpope/vim-sensible'                                      " Set of default config params for vim
+Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " Fork of garbas/vim-snipmate without annoying . snippet
 Plugin 'avakhov/vim-yaml'                                        " Indentation settings for yaml files
 Plugin 'Valloric/YouCompleteMe'                                  " Autocompletion + jump to definition (jedi alternative)
 
+" Disabled
 " Plugin 'kien/ctrlp.vim'                                        " CtrlP fuzzy-finder.
 " Plugin 'davidhalter/jedi-vim'                                  " Does everything. But too slow
 " Plugin 'garbas/vim-snipmate', {'name': 'snipmate'}             " Switched to ultisnips - insert snippets with <snippet_name> + <Tab>
@@ -106,6 +110,9 @@ filetype plugin indent on    " required
 set history=700                " Lines of history to remember
 set autoread                   " Check if file is modified externally
 set backspace=eol,start,indent " Configure backspace so it acts as it should
+
+filetype plugin indent on
+syntax on
 set whichwrap+=<,>,h,l
 set lazyredraw                 " Don't redraw during macros (for performance)
 set encoding=utf8              " Use utf8/en_US
@@ -165,7 +172,7 @@ set novisualbell
 set t_vb=
 set tm=500
 " set term=xterm
- 
+" let g:solarized_termtrans=1
 " VERSION 1
 " Highlight text that is longer than 80 characters
 " augroup vimrc_autocmds
