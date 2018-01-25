@@ -36,7 +36,7 @@
 "
 "
 " <F8>                  Enable spell-check
-" <F9>                  Toggle git gutter
+" <F9>                  Toggle signify (diff in gutter)
 " z                     View spelling suggestions for the mispelled word
 " zg                    Add the current word to the dictionary
 " zug                   Remove the current word from the dictionary
@@ -78,13 +78,13 @@ Plugin 'Shougo/unite.vim'                                        " Search and di
 Plugin 'h1mesuke/unite-outline'                                  " Used by unite to display outline
 Plugin 'Shougo/vimproc.vim'                                      " Used by unite to speed up search
 Plugin 'altercation/vim-colors-solarized', {'name': 'solarized'} " Solarized theme for vim
-Plugin 'airblade/vim-gitgutter'                                  " Show git diff in the gutter (sign column)
 Plugin 'nathanaelkane/vim-indent-guides'                         " Adds indentation guides
 Plugin 'plasticboy/vim-markdown'                                 " Syntax highlighting for markdown
 Plugin 'jimf/vim-pep8-text-width'                                " Wraps text at 79 char for code and 72 for comments
 Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}    " Inserts templates for the documentation
 Plugin 'tpope/vim-repeat'                                        " Enhance vim's last command repetition with '.'
 Plugin 'tpope/vim-sensible'                                      " Set of default config params for vim
+Plugin 'mhinz/vim-signify'                                       " Show diff in the gutter (sign column)
 Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " Fork of garbas/vim-snipmate without annoying . snippet
 Plugin 'avakhov/vim-yaml'                                        " Indentation settings for yaml files
 Plugin 'Valloric/YouCompleteMe'                                  " Autocompletion + jump to definition (jedi alternative)
@@ -584,9 +584,6 @@ function! s:unite_settings()
     imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
 
-" **** Vim gutter
-map <F9> :GitGutterToggle<CR>
-
 " **** Vim indent guides
 " toggled with <Leader> ig
 let g:indent_guides_auto_colors = 0 " set colors manually
@@ -610,6 +607,10 @@ let g:vim_markdown_folding_disabled = 1
 nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>s :YcmCompleter GoToDeclaration<CR>
 let g:ycm_seed_identifiers_with_syntax = 0  " preseed with language syntax keywords
+
+" **** Vim signify
+map <F9> :SignifyToggle<CR>
+highlight clear SignColumn  " Reset normal color for gutter
 
 " """"""""""""""""""""""" Disabled plugin settings """"""""""""""""""""""""""""
 
