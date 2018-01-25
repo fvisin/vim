@@ -43,6 +43,7 @@
 " ]s                    Next mispelled word
 " [s                    Prev mispelled word
 " gqq                   Autowrap the current line
+" gqj                   Autowrap the current line and joins it with the next
 
 " Also, the indent directory contains a script to automatically indent python
 
