@@ -86,6 +86,7 @@ Plugin 'tpope/vim-repeat'                                        " Enhance vim's
 Plugin 'tpope/vim-sensible'                                      " Set of default config params for vim
 Plugin 'mhinz/vim-signify'                                       " Show diff in the gutter (sign column)
 Plugin 'fvisin/vim-snippets.git', {'name': 'snipmate-snippets'}  " Fork of garbas/vim-snipmate without annoying . snippet
+Plugin 'tmux-plugins/vim-tmux'                                   " To edit .tmux.conf. `:make` to see errors, `g!!` to execute a line
 Plugin 'christoomey/vim-tmux-navigator'                          " <c-h/j/k/l> to navigate vim and tmux panes (with script in tmux.conf)
 Plugin 'avakhov/vim-yaml'                                        " Indentation settings for yaml files
 Plugin 'Valloric/YouCompleteMe'                                  " Autocompletion + jump to definition (jedi alternative)
