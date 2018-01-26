@@ -4,7 +4,7 @@
 " <Ctrl>-o              Jump back
 " K                     Show documentation with jedi plugin
 
-" Ctrl-l                Creates documentation of highlighted 'def' or 'class'
+" <leader> k            Creates documentation of highlighted 'def' or 'class'
 " def + <ctrl-space>    Create snippet for new function
 " ipdb + <ctrl-space>   Sets trace
 " <leader> ig           Toggle visualization of indent guides
@@ -498,6 +498,7 @@ let g:LatexBox_latexmk_preview_continuously=1
 
 " **** Pydocstring
 let g:pydocstring_templates_dir = $HOME."/.vim/pydocstring-templates/"
+nmap <silent> <leader>k <Plug>(pydocstring)
 
 " **** Supertab
 " au FileType python set omnifunc=pythoncomplete#Complete " This breaks Jedi
