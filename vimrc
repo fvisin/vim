@@ -613,7 +613,6 @@ let g:ycm_seed_identifiers_with_syntax = 0  " preseed with language syntax keywo
 
 " **** Vim signify
 map <F9> :SignifyToggle<CR>
-highlight clear SignColumn  " Reset normal color for gutter
 let g:signify_skip_filename_pattern  = ['\.pipertmp.*']
 let g:signify_vcs_list               = [ 'git', 'perforce' ]
 let g:signify_sign_add               = '+'
@@ -621,14 +620,7 @@ let g:signify_sign_delete            = '-'
 let g:signify_sign_delete_first_line = '-'
 let g:signify_sign_change            = '~'
 let g:signify_sign_changedelete      = g:signify_sign_change
-
-" Set gutter colors
-highlight SignifyLineAdd           cterm=bold ctermbg=8  ctermfg=37
-highlight SignifyLineChange        cterm=bold ctermbg=8  ctermfg=37
-highlight SignifyLineDelete        cterm=bold ctermbg=8  ctermfg=37
-highlight SignifySignAdd           cterm=bold ctermbg=8  ctermfg=37
-highlight SignifySignDelete        cterm=bold ctermbg=8  ctermfg=37
-highlight SignifySignChange        cterm=bold ctermbg=8  ctermfg=37
+let g:signify_sign_show_count = 0
 
 " """"""""""""""""""""""" Disabled plugin settings """"""""""""""""""""""""""""
 
