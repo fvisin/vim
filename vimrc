@@ -77,7 +77,7 @@ Plugin 'sirver/UltiSnips'
 Plugin 'Shougo/unite.vim'                                        " Search and display information from sources like files, buffers, ..
 Plugin 'h1mesuke/unite-outline'                                  " Used by unite to display outline
 Plugin 'Shougo/vimproc.vim'                                      " Used by unite to speed up search
-Plugin 'fvisin/vim-colors-solarized', {'name': 'solarized'}      " Solarized theme for vim
+Plugin 'omtcvxyz/vim-colors-solarized', {'name': 'solarized'}    " Solarized theme for vim
 Plugin 'nathanaelkane/vim-indent-guides'                         " Adds indentation guides
 Plugin 'plasticboy/vim-markdown'                                 " Syntax highlighting for markdown
 Plugin 'jimf/vim-pep8-text-width'                                " Wraps text at 79 char for code and 72 for comments
