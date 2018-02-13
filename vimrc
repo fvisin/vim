@@ -90,6 +90,7 @@ Plugin 'tmux-plugins/vim-tmux'                                   " To edit .tmux
 Plugin 'christoomey/vim-tmux-navigator'                          " <c-h/j/k/l> to navigate vim and tmux panes (with script in tmux.conf)
 Plugin 'avakhov/vim-yaml'                                        " Indentation settings for yaml files
 Plugin 'Valloric/YouCompleteMe'                                  " Autocompletion + jump to definition (jedi alternative)
+Plugin 'tweekmonster/startuptime.vim'
 
 " Disabled
 " Plugin 'kien/ctrlp.vim'                                        " CtrlP fuzzy-finder.
