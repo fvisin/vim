@@ -116,7 +116,10 @@ filetype plugin indent on    " required
 
 
 " """"""""""""""""""""""" General vim setup """""""""""""""""""""""""""""""""""
-set history=700                " Lines of history to remember
+set history=10000              " Lines of history to remember
+set undolevels=10000           " Number of undos stored on disk
+set undofile                   " Use an undo file: persistent undos!
+set undodir=~/.vimundo/        " Where to store the undo file
 set autoread                   " Check if file is modified externally
 set backspace=eol,start,indent " Configure backspace so it acts as it should
 
