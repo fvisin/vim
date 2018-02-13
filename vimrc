@@ -143,6 +143,7 @@ set mouse=a                    " Enable mouse scrolling
 set so=7                        " Autoscroll to keep cursor n lines from top/bottom of page
 set wildmenu                    " Turn on the WiLd menu (autocomplete :commands)
 set wildmode=longest:list,full
+set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.aux
 set showmatch                   " Show matching brackets
 set mat=3                       " Tenths of a second to blink when matching brackets
 set showcmd                     " Show incomplete commands
