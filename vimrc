@@ -92,6 +92,11 @@ Plugin 'avakhov/vim-yaml'                                        " Indentation s
 Plugin 'Valloric/YouCompleteMe'                                  " Autocompletion + jump to definition (jedi alternative)
 Plugin 'tweekmonster/startuptime.vim'
 
+" To checkout
+" MattesGroeger/vim-bookmarks                                    " Allows to set bookmarks in the code and browse them
+" suan/vim-instant-markdown                                      " Preview of markdown
+" ntpeters/vim-better-whitespace                                 " Whitespaces highlighting and removal
+
 " Disabled
 " Plugin 'kien/ctrlp.vim'                                        " CtrlP fuzzy-finder.
 " Plugin 'davidhalter/jedi-vim'                                  " Does everything. But too slow
