@@ -2,6 +2,7 @@
 " <leader> d            Rope goto definition (jedi through rope or YouCompleteMe)
 " <leader> s            YouCompleteMe goto declaration
 " <Ctrl>-o              Jump back
+" <Ctrl>-n              Incrementally select occurrences of a word or write at multiple locations when multiple lines are selected in Visual mode. (vim-multiple-cursors)
 " K                     Show documentation with jedi plugin
 
 " <leader> k            Creates documentation of highlighted 'def' or 'class'
@@ -80,6 +81,7 @@ Plugin 'Shougo/vimproc.vim'                                      " Used by unite
 Plugin 'omtcvxyz/vim-colors-solarized', {'name': 'solarized'}    " Solarized theme for vim
 Plugin 'nathanaelkane/vim-indent-guides'                         " Adds indentation guides
 Plugin 'plasticboy/vim-markdown'                                 " Syntax highlighting for markdown
+Plugin 'terryma/vim-multiple-cursors'                            " Easily edit multiple locations in parallel
 Plugin 'jimf/vim-pep8-text-width'                                " Wraps text at 79 char for code and 72 for comments
 Plugin 'heavenshell/vim-pydocstring', {'name': 'pydocstring'}    " Inserts templates for the documentation
 Plugin 'tpope/vim-repeat'                                        " Enhance vim's last command repetition with '.'
