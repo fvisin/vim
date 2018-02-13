@@ -133,6 +133,7 @@ let mapleader=","
 set tm=500                     " Timeout after leader key
 map <C-Z> <Nop>|               " Prevent ctrl-z from closing vim
 set pastetoggle=<F2>           " F2 = paste mode toggle
+set clipboard=unnamedplus      " Use system clipboard
 set splitbelow                 " Open new split panes to right and bottom
 set splitright                 " Open new split panes to right and bottom
 set mouse=a                    " Enable mouse scrolling
