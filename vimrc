@@ -78,7 +78,7 @@ Plugin 'sirver/UltiSnips'
 Plugin 'Shougo/unite.vim'                                        " Search and display information from sources like files, buffers, ..
 Plugin 'h1mesuke/unite-outline'                                  " Used by unite to display outline
 Plugin 'Shougo/vimproc.vim'                                      " Used by unite to speed up search
-Plugin 'omtcvxyz/vim-colors-solarized', {'name': 'solarized'}    " Solarized theme for vim
+Plugin 'fvisin/vim-colors-solarized', {'name': 'solarized'}      " Solarized theme for vim (not existing anymore)
 Plugin 'nathanaelkane/vim-indent-guides'                         " Adds indentation guides
 Plugin 'plasticboy/vim-markdown'                                 " Syntax highlighting for markdown
 Plugin 'terryma/vim-multiple-cursors'                            " Easily edit multiple locations in parallel
@@ -533,9 +533,9 @@ let g:syntastic_loc_list_height = 5  "list length
 let g:syntastic_auto_jump = 0  "do not jump to errors when detected
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'  "show number of errors and warnings
 "set the colour of errors and warnings 
-hi SpellBad ctermfg=235 ctermbg=166                       " errors line 
+"hi SpellBad ctermfg=235 ctermbg=166                       " errors line 
 " hi error ctermfg=237 ctermbg=178                        " errors sign
-hi SyntasticErrorSign ctermfg=166 cterm=bold              " style errors sign 
+"hi SyntasticErrorSign ctermfg=166 cterm=bold              " style errors sign 
 " hi error ctermfg=darkblue ctermbg=yellow                " errors sign
 " hi SyntasticErrorSign ctermfg=darkblue ctermbg=yellow   " style errors sign
 
